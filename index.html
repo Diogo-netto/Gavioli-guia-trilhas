@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="bg-black antialiased scroll-smooth overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TrilhaPro | Guias de Moto em Lima Duarte</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    colors: {
+                        neon: { 500: '#ff4d00', 600: '#e64500', glow: 'rgba(255, 77, 0, 0.6)' },
+                        dark: { 900: '#050505', 800: '#0a0a0a', 700: '#141414' }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 20px rgba(255, 77, 0, 0.5), 0 0 40px rgba(255, 77, 0, 0.3)',
+                        'neon-hover': '0 0 30px rgba(255, 77, 0, 0.8), 0 0 60px rgba(255, 77, 0, 0.5)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #050505;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #141414; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #ff4d00; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+
+        /* Estilo do Header quando ele aparece */
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 77, 0, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(20, 20, 20, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            background: rgba(30, 30, 30, 0.6);
+            border-color: rgba(255, 77, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .text-glow { text-shadow: 0 0 15px rgba(255, 77, 0, 0.8); }
+
+        #loader {
+            position: fixed; inset: 0; background: #050505; z-index: 99999;
+            display: flex; justify-content: center; align-items: center; flex-direction: column;
+        }
+        .loader-progress {
+            width: 0%; height: 100%; background: #ff4d00; box-shadow: 0 0 10px #ff4d00;
+        }
+        .clip-img { clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+
+        .neon-orb {
+            background: radial-gradient(circle, rgba(255,77,0,0.15) 0%, rgba(255,77,0,0) 70%);
+        }
+        
+        /* Moto Wrapper otimizado */
+        #bike-wrapper {
+            will-change: transform, opacity;
+            transform-origin: center center; 
+        }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- LOADER -->
+    <div id="loader">
+        <h1 class="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic px-4 text-center">
+            Aquecendo os <span class="text-neon-500 text-glow">Motores</span>
+        </h1>
+        <div class="w-48 h-1 bg-dark-700 mt-6 overflow-hidden relative">
+            <div class="loader-progress absolute top-0 left-0" id="loader-progress"></div>
+        </div>
+    </div>
+
+    <!-- HEADER & NAV (COMEÇA INVISÍVEL) -->
+    <nav id="navbar" class="fixed w-full top-0 z-[70] transition-all duration-500 py-4 bg-transparent -translate-y-full opacity-0 pointer-events-none">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
+            <a href="#hero" class="text-2xl md:text-3xl font-black italic tracking-tighter text-white relative z-[80]">
+                TRILHA<span class="text-neon-500 text-glow">PRO</span>
+            </a>
+            
+            <ul class="hidden md:flex gap-8 text-sm font-bold tracking-widest uppercase text-gray-300">
+                <li><a href="#hero" class="hover:text-neon-500 transition-colors">Início</a></li>
+                <li><a href="#guia" class="hover:text-neon-500 transition-colors">O Guia</a></li>
+                <li><a href="#lugares" class="hover:text-neon-500 transition-colors">Trilhas</a></li>
+                <li><a href="#servicos" class="hover:text-neon-500 transition-colors">Serviços</a></li>
+            </ul>
+
+            <a href="https://wa.me/5532000000000" target="_blank" class="hidden md:flex items-center gap-2 bg-neon-500 hover:bg-white text-black px-6 py-2 rounded-full font-bold italic transition-all transform hover:scale-105 shadow-neon">
+                <i class="ph-fill ph-whatsapp-logo text-xl"></i> AGENDAR
+            </a>
+
+            <button id="mobile-btn" class="md:hidden text-4xl text-neon-500 relative z-[80] p-2">
+                <i class="ph-fill ph-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[65] hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300 backdrop-blur-xl">
+        <a href="#hero" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Início</a>
+        <a href="#guia" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">O Guia</a>
+        <a href="#lugares" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Nossas Trilhas</a>
+        <a href="#servicos" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Planos</a>
+        <a href="#contato" class="mobile-link mt-8 bg-neon-500 text-black px-8 py-3 rounded-full font-black italic uppercase text-xl shadow-neon flex items-center gap-2">
+            <i class="ph-fill ph-whatsapp-logo"></i> Agendar
+        </a>
+    </div>
+
+    <!-- HERO SECTION (TELA INICIAL PURA) -->
+    <section id="hero" class="relative w-full h-[100svh] overflow-hidden bg-dark-900 flex items-center justify-center flex-col">
+        
+        <div class="parallax-layer absolute inset-0 z-0 w-full h-full" data-depth="0.03">
+            <img src="img/3760631e-c9ab-43d9-bc69-b68176e06493-removebg-preview.png" alt="Trilha Off-Road" class="w-full h-full object-cover object-center opacity-70">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/50 to-dark-900"></div>
+            <div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] pointer-events-none"></div>
+        </div>
+
+        <div class="parallax-layer absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-dark-900 to-transparent z-30" data-depth="0.1"></div>
+
+        <div id="hero-text" class="parallax-layer absolute z-20 flex flex-col items-center justify-center text-center px-4 w-full" data-depth="0.08">
+            <h2 class="text-neon-500 font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-lg mb-2 md:mb-4 drop-shadow-lg">
+                Ibitipoca, Bom Jardim, Rio Preto e Lima Duarte
+            </h2>
+            <h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase italic leading-none tracking-tighter drop-shadow-2xl">
+                GUIAS DE<br><span class="text-transparent bg-clip-text bg-gradient-to-br from-neon-500 to-orange-400 text-glow">TRILHA</span>
+            </h1>
+            <p class="mt-4 md:mt-6 text-sm sm:text-base md:text-2xl font-bold text-gray-200 max-w-2xl drop-shadow-md">
+                ROLE PARA BAIXO PARA ACELERAR
+            </p>
+            <div class="mt-6 md:mt-8 animate-bounce"><i class="ph ph-caret-double-down text-3xl md:text-4xl text-neon-500 opacity-90 drop-shadow-lg"></i></div>
+        </div>
+
+        <!-- MOTO ANIMADA 5D (POSICIONAMENTO MATEMÁTICO PERFEITO) -->
+        <div id="bike-wrapper" style="opacity: 0; left: -100vw;" class="absolute z-40 w-[450px] md:w-[700px] bottom-[5%] md:bottom-[5%] flex items-center justify-center">
+            <div id="dust-particles" class="absolute -bottom-2 -left-6 md:-bottom-4 md:-left-10 w-24 h-24 md:w-48 md:h-48 bg-neon-500 rounded-full blur-[20px] md:blur-[30px] opacity-0 mix-blend-screen"></div>
+            <img id="dirt-bike" src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" alt="Moto de Trilha Real" class="w-full h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.9)] transform -scale-x-100">
+        </div>
+        
+        <!-- Speed Lines -->
+        <div id="speed-lines" class="absolute inset-0 pointer-events-none opacity-0 z-50 overflow-hidden flex justify-between">
+            <div class="w-[1px] md:w-[2px] h-full bg-white opacity-20 transform -skew-x-12 translate-x-[10vw]"></div>
+            <div class="w-[2px] md:w-[4px] h-full bg-neon-500 opacity-30 transform -skew-x-12 translate-x-[40vw]"></div>
+            <div class="w-[1px] md:w-[3px] h-full bg-neon-500 opacity-20 transform -skew-x-12 translate-x-[90vw]"></div>
+        </div>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL (Sobe imediatamente após o hero) -->
+    <main id="main-content" class="relative z-40 bg-dark-900 pb-24 shadow-[0_-20px_50px_rgba(0,0,0,1)] w-full overflow-hidden">
+        <div class="w-full h-1 bg-gradient-to-r from-transparent via-neon-500 to-transparent opacity-50 mb-10 md:mb-20"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- SEU GUIA -->
+            <section id="guia" class="mb-24 md:mb-32 content-reveal pt-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div class="relative rounded-2xl overflow-hidden border border-white/5 group h-[400px] md:h-[500px]">
+                        <div class="absolute inset-0 bg-neon-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-overlay z-10"></div>
+                        <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" alt="Foto do Guia de Moto" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
+                        <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent z-20">
+                            <h3 class="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tighter break-words">O SEU GUIA</h3>
+                            <p class="text-neon-500 font-bold uppercase tracking-widest text-xs md:text-sm mt-1">Especialista em Trilhas da Região</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm md:text-base">A base é Lima Duarte</h2>
+                        <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-4 md:mb-6">
+                            CONHECIMENTO LOCAL,<br><span class="text-gray-500">PILOTAGEM EXTREMA.</span>
+                        </h3>
+                        <!-- TEXTO ALTERADO COM LINGUAGEM MINEIRA FOCADO EM IBITIPOCA -->
+                        <p class="text-base md:text-lg text-gray-400 mb-6 md:mb-8 font-light leading-relaxed">
+                            Nascido e criado nesse mar de morros, fiz de Ibitipoca e das serras da região o meu quintal de casa, uai! Conheço cada pirambeira, cada atoleiro e as cavas mais brutas que cortam Conceição de Ibitipoca, Bom Jardim, Rio Preto e Lima Duarte. Meu negócio é botar a turma pra suar a camisa nas trilhas, garantindo a segurança da galera, mas sempre com aquele desafio que a gente gosta. Pode juntar sua equipe, que o trajeto eu garanto: vai ter barro, paisagem de cair o queixo e aquela legítima hospitalidade mineira. Bora acelerar, sô!
+                        </p>
+                        <ul class="space-y-3 md:space-y-4 mb-8">
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Roteiros para todos os níveis de pilotagem.</li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Trilhas de extrema qualidade.</li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Muita parceria e resenha garantida.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LUGARES -->
+            <section id="lugares" class="mb-24 md:mb-32 pt-10">
+                <div class="text-center mb-12 md:mb-16 content-reveal">
+                    <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm">Onde Aceleramos</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-2 md:mb-4">
+                        AS MELHORES <span class="text-gray-500">TRILHAS</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm md:text-lg px-4">Toque nas imagens para abrir a galeria de fotos reais de cada pico.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer" onclick="openModal('modal-ibitipoca')">
+                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
+                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
+                            <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" alt="Ibitipoca" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
+                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
+                            </div>
+                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Ibitipoca</h4>
+                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">O Paraíso das Pedras</p>
+                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver Fotos &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer md:mt-8" onclick="openModal('modal-bomjardim')">
+                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
+                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
+                            <img src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
+                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
+                            </div>
+                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Bom Jardim</h4>
+                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">Travessias e Lama</p>
+                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer sm:-mt-4 lg:mt-0" onclick="openModal('modal-riopreto')">
+                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
+                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
+                            <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
+                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
+                            </div>
+                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Rio Preto</h4>
+                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">Subidas e Single Tracks</p>
+                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer sm:mt-4 lg:mt-8" onclick="openModal('modal-limaduarte')">
+                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
+                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
+                            <img src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
+                        </div>
+                        <div class="p-5 md:p-6">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
+                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
+                            </div>
+                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Lima Duarte</h4>
+                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">O Coração da Região</p>
+                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVIÇOS E VALORES -->
+            <section id="servicos" class="mb-24 md:mb-32 pt-10">
+                <div class="text-center mb-12 md:mb-16 content-reveal">
+                    <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm">Estrutura</h2>
+                    <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-2 md:mb-4">
+                        PLANOS E <span class="text-gray-500">SERVIÇOS</span>
+                    </h3>
+                    <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto px-4">Tudo o que você e sua equipe precisam. Só se preocupe em pilotar.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 content-reveal">
+                    
+                    <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col h-full">
+                        <i class="ph-fill ph-user text-4xl md:text-5xl text-gray-500 mb-4 md:mb-6"></i>
+                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Guia Individual</h4>
+                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Para quem quer treinar fundamentos pesados ou passear no seu próprio ritmo pelas cavas da região.</p>
+                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Roteiro adaptado</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Dicas de pilotagem</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Trilha de 6 a 8 horas</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-2xl md:text-3xl font-black text-white mb-4">R$ 150<span class="text-xs font-normal text-gray-500">/dia</span></p>
+                            <a href="#contato" class="block text-center w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-neon-500 transition-colors uppercase text-sm md:text-base">Agendar Solo</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-b from-dark-800 to-black p-6 md:p-8 rounded-2xl border-2 border-neon-500 flex flex-col h-full transform md:-translate-y-4 shadow-neon relative mt-4 md:mt-0">
+                        <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 bg-neon-500 text-black px-4 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap">Mais Escolhido</div>
+                        <i class="ph-fill ph-users-three text-4xl md:text-5xl text-neon-500 mb-4 md:mb-6"></i>
+                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Pacote Equipes</h4>
+                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Junte a galera para o melhor final de semana off-road. Foco no grupo e ajuda nas piores subidas.</p>
+                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Até 10 pilotos</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Ajuda no resgate nas cavas</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Fotos e vídeos da galera</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-3xl md:text-4xl font-black text-neon-500 text-glow mb-4">R$ 400<span class="text-xs font-normal text-gray-500">/grupo</span></p>
+                            <a href="#contato" class="block text-center w-full bg-neon-500 text-black font-black py-4 rounded-lg hover:bg-white transition-colors uppercase italic shadow-neon text-sm md:text-base">Agendar Equipe</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col h-full mt-4 md:mt-0">
+                        <i class="ph-fill ph-wrench text-4xl md:text-5xl text-gray-500 mb-4 md:mb-6"></i>
+                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Estrutura Extra</h4>
+                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Precisa de apoio completo? Nós organizamos toda a base em Lima Duarte para você chegar e acelerar.</p>
+                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Pousada Parceira</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Churrasco Pós-trilha</li>
+                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Lavador de Motos</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-lg md:text-xl font-black text-white mb-4 md:mt-2">Sob Consulta</p>
+                            <a href="#contato" class="block text-center w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-neon-500 transition-colors uppercase text-sm md:text-base">Fazer Orçamento</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONTATO CTA -->
+            <section id="contato" class="relative py-16 md:py-24 px-6 md:px-8 rounded-3xl border border-white/10 overflow-hidden text-center content-reveal">
+                <div class="absolute inset-0 bg-gradient-to-b from-dark-800 to-black z-0"></div>
+                <div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none z-0"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-7xl font-black text-white italic tracking-tighter mb-4 md:mb-6 uppercase">Vamos <span class="text-neon-500 text-glow">Acelerar?</span></h2>
+                    <p class="text-sm md:text-xl text-gray-400 mb-8 md:mb-10 font-light max-w-xl mx-auto">Sua próxima aventura hard enduro te espera. Agende sua data agora. Vagas limitadas aos finais de semana.</p>
+                    
+                    <a href="https://wa.me/5532000000000" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-base md:text-xl font-black text-black uppercase italic tracking-wider bg-neon-500 rounded-lg hover:bg-white transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-2 w-full md:w-auto">
+                        <i class="ph-fill ph-whatsapp-logo text-2xl md:text-3xl mr-3"></i> Falar no WhatsApp
+                    </a>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="text-center py-8 mt-16 md:mt-20 border-t border-white/5 relative z-10">
+            <p class="text-gray-600 font-bold text-xs md:text-sm uppercase tracking-widest px-4 leading-relaxed">© 2026 TRILHAPRO. Lima Duarte, MG.<br class="md:hidden"> A verdadeira experiência off-road.</p>
+            <p>Desenvolvido por Diogo Netto-Astrobyte-tecnologias</p>
+            <a href="#">Entre em contado com desenvolverdor-Clique Aqui</a>
+
+        </footer>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- MODAIS DE FOTOS -->
+    <!-- ========================================== -->
+
+    <!-- Modal IBITIPOCA -->
+    <div id="modal-ibitipoca" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
+        <button onclick="closeModal('modal-ibitipoca')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Ibitipoca</h2>
+            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">O paraíso das pedras. Trilhas extremas com visual absurdo. Aqui testamos suspensão da moto e a resistência do piloto.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
+                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
+                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal BOM JARDIM -->
+    <div id="modal-bomjardim" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
+        <button onclick="closeModal('modal-bomjardim')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Bom Jardim</h2>
+            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Água, lama grossa e travessias épicas. Prepare as botas porque ninguém sai com a moto limpa daqui.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
+                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 2</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal RIO PRETO -->
+    <div id="modal-riopreto" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
+        <button onclick="closeModal('modal-riopreto')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Rio Preto</h2>
+            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Subidas sem fim e single tracks técnicos. O motor ferve e o braço cansa.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
+                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 2</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal LIMA DUARTE -->
+    <div id="modal-limaduarte" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
+        <button onclick="closeModal('modal-limaduarte')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Lima Duarte</h2>
+            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">A nossa base de operações. Região perfeita para aquecer os motores.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS MÁGICOS -->
+    <script>
+        const btnMobile = document.getElementById('mobile-btn');
+        const menuOverlay = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        btnMobile.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if(isMenuOpen) {
+                menuOverlay.classList.remove('hidden');
+                menuOverlay.classList.add('flex');
+                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
+                btnMobile.innerHTML = '<i class="ph-fill ph-x"></i>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                    menuOverlay.classList.remove('flex');
+                }, 300);
+                btnMobile.innerHTML = '<i class="ph-fill ph-list"></i>';
+                document.body.style.overflow = '';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                menuOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                    menuOverlay.classList.remove('flex');
+                }, 300);
+                btnMobile.innerHTML = '<i class="ph-fill ph-list"></i>';
+                document.body.style.overflow = '';
+            });
+        });
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                setTimeout(() => modal.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 300);
+                document.body.style.overflow = '';
+            }
+        }
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // O HEADER SÓ APARECE DEPOIS DA TELA DO HERO
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const heroHeight = document.getElementById('hero').offsetHeight;
+            
+            if(window.scrollY > heroHeight * 0.8) { 
+                nav.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                nav.classList.add('translate-y-0', 'opacity-100', 'glass-nav');
+            } else {
+                nav.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                nav.classList.remove('translate-y-0', 'opacity-100', 'glass-nav');
+            }
+        });
+
+        window.onload = () => {
+            gsap.to("#loader-progress", { width: "100%", duration: 1, ease: "power2.inOut" });
+            gsap.to("#loader", { 
+                opacity: 0, duration: 0.8, delay: 1.2, 
+                onComplete: () => {
+                    document.getElementById("loader").style.display = "none";
+                    initAnimations();
+                } 
+            });
+        };
+
+        function initAnimations() {
+            if (window.innerWidth > 768) {
+                const hero = document.getElementById('hero');
+                const layers = document.querySelectorAll('.parallax-layer');
+                hero.addEventListener('mousemove', (e) => {
+                    const x = (e.clientX - window.innerWidth / 2) * 0.5;
+                    const y = (e.clientY - window.innerHeight / 2) * 0.5;
+                    layers.forEach(layer => {
+                        const depth = layer.dataset.depth;
+                        gsap.to(layer, { x: x * depth, y: y * depth, duration: 1.5, ease: "power2.out" });
+                    });
+                });
+            }
+
+            // MÁGICA DA MOTO BLINDADA - CENTRO EXATO
+            const isMobile = window.innerWidth <= 768;
+            
+            // Posiciona a moto fora da tela pra evitar flash
+            gsap.set("#bike-wrapper", {
+                left: "0%", 
+                xPercent: -100, // Empurra 100% da própria largura pra esquerda
+                opacity: 1 // Agora pode aparecer, já tá escondida
+            });
+            
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "+=120%", // Reduzido pra não ter buraco
+                    scrub: 1,
+                    pin: true, 
+                    anticipatePin: 1
+                }
+            });
+
+            // PASSO 1: Moto VEM PARA O CENTRO DA TELA (50vw)
+            tl.to("#bike-wrapper", {
+                x: "50vw", // Manda pro centro da tela
+                xPercent: -50, // Corrige o eixo central da moto no centro da tela
+                y: isMobile ? -50 : -100, 
+                rotation: -25, // Empina
+                duration: 4,
+                ease: "power2.out"
+            }, 0)
+            .to("#dust-particles", { opacity: 0.8, scale: isMobile ? 3 : 5, duration: 2 }, 1)
+            .to("#hero-text", { scale: 0.8, y: -100, opacity: 0, duration: 3 }, 1)
+            .to("#speed-lines", { opacity: 1, duration: 1 }, 3)
+            
+            // PASSO 2: PULA NA CARA, FICA NO CENTRO E SOME 
+            .to("#bike-wrapper", {
+                scale: isMobile ? 18 : 12, // Tamanho brutal pra tampar o fundo
+                y: isMobile ? -200 : -300, 
+                opacity: 0, // Só apaga no pico do pulo
+                duration: 3,
+                ease: "power3.in"
+            }, 4)
+            .to("#speed-lines", { opacity: 0, duration: 1 }, 6);
+
+            const revealElements = document.querySelectorAll('.content-reveal');
+            revealElements.forEach((el) => {
+                gsap.fromTo(el, 
+                    { opacity: 0, y: 30 },
+                    { 
+                        opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 88%", 
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+            });
+        }
+    </script>
+</body>
+</html>
