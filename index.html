@@ -1,605 +1,2699 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="bg-black antialiased scroll-smooth overflow-x-hidden">
+
+<html class="bg-black antialiased scroll-smooth overflow-x-hidden" lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>TrilhaPro | Guias de Moto em Lima Duarte</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
-    
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
-                    colors: {
-                        neon: { 500: '#ff4d00', 600: '#e64500', glow: 'rgba(255, 77, 0, 0.6)' },
-                        dark: { 900: '#050505', 800: '#0a0a0a', 700: '#141414' }
-                    },
-                    boxShadow: {
-                        'neon': '0 0 20px rgba(255, 77, 0, 0.5), 0 0 40px rgba(255, 77, 0, 0.3)',
-                        'neon-hover': '0 0 30px rgba(255, 77, 0, 0.8), 0 0 60px rgba(255, 77, 0, 0.5)'
-                    }
-                }
-            }
-        }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gavioli Guia Trilhas | Trilhas de Moto em Lima Duarte e Ibitipoca, MG</title>
+<!-- SEO: invisível, preserva integralmente a página aprovada pelo cliente. -->
+<meta content="Pedro Gavioli, guia de trilhas de moto em Lima Duarte, Ibitipoca, Bom Jardim e Rio Preto, MG. Conheça fotos reais dos roteiros e combine sua trilha pelo WhatsApp." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<meta content="#050505" name="theme-color"/>
+<meta content="Gavioli Guia Trilhas" name="author"/>
+<meta content="BR-MG" name="geo.region"/>
+<meta content="Lima Duarte, Minas Gerais" name="geo.placename"/>
+<meta content="website" property="og:type"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="Gavioli Guia Trilhas" property="og:site_name"/>
+<meta content="Gavioli Guia Trilhas | Moto Off-Road em Lima Duarte e Ibitipoca" property="og:title"/>
+<meta content="Trilhas de moto com Pedro Gavioli na região de Lima Duarte, Ibitipoca, Bom Jardim e Rio Preto. Veja as fotos e converse pelo WhatsApp." property="og:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Gavioli Guia Trilhas | Lima Duarte e Ibitipoca" name="twitter:title"/>
+<meta content="Conheça as trilhas com Pedro Gavioli, guia de moto off-road na Zona da Mata Mineira." name="twitter:description"/>
+<!-- Depois de registrar o domínio: adicionar canonical, og:url e og:image (URL absoluta da foto original). -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Gavioli Guia Trilhas",
+      "description": "Guia de trilhas de moto off-road na região de Lima Duarte, Ibitipoca, Bom Jardim e Rio Preto, em Minas Gerais.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lima Duarte",
+        "addressRegion": "MG",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "Lima Duarte, MG" },
+        { "@type": "Place", "name": "Conceição de Ibitipoca, MG" },
+        { "@type": "Place", "name": "Bom Jardim, MG" },
+        { "@type": "Place", "name": "Rio Preto, MG" }
+      ]
+    }
     </script>
+<!-- Tailwind CSS -->
+<style id="gavioli-compiled-css">/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme,base,components,utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: Montserrat, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --color-orange-400: oklch(75% 0.183 55.934);
+    --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-xl: 36rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
+    --container-6xl: 72rem;
+    --container-7xl: 80rem;
+    --text-xs: 0.75rem;
+    --text-xs--line-height: calc(1 / 0.75);
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --text-8xl: 6rem;
+    --text-8xl--line-height: 1;
+    --text-9xl: 8rem;
+    --text-9xl--line-height: 1;
+    --font-weight-light: 300;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    --tracking-tighter: -0.05em;
+    --tracking-wider: 0.05em;
+    --tracking-widest: 0.1em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --drop-shadow-md: 0 3px 3px rgb(0 0 0 / 0.12);
+    --drop-shadow-lg: 0 4px 4px rgb(0 0 0 / 0.15);
+    --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
+    --animate-bounce: bounce 1s infinite;
+    --blur-md: 12px;
+    --blur-xl: 24px;
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-neon-500: #ff4d00;
+    --color-dark-900: #050505;
+    --color-dark-800: #0a0a0a;
+    --color-dark-700: #141414;
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .pointer-events-none {
+    pointer-events: none;
+  }
+  .absolute {
+    position: absolute;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .relative {
+    position: relative;
+  }
+  .sticky {
+    position: sticky;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-1\/2 {
+    top: calc(1/2 * 100%);
+  }
+  .top-4 {
+    top: calc(var(--spacing) * 4);
+  }
+  .right-4 {
+    right: calc(var(--spacing) * 4);
+  }
+  .-bottom-2 {
+    bottom: calc(var(--spacing) * -2);
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
+  .bottom-\[5\%\] {
+    bottom: 5%;
+  }
+  .-left-6 {
+    left: calc(var(--spacing) * -6);
+  }
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+  .left-1\/2 {
+    left: calc(1/2 * 100%);
+  }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-10 {
+    z-index: 10;
+  }
+  .z-20 {
+    z-index: 20;
+  }
+  .z-30 {
+    z-index: 30;
+  }
+  .z-40 {
+    z-index: 40;
+  }
+  .z-50 {
+    z-index: 50;
+  }
+  .z-\[65\] {
+    z-index: 65;
+  }
+  .z-\[70\] {
+    z-index: 70;
+  }
+  .z-\[80\] {
+    z-index: 80;
+  }
+  .z-\[100\] {
+    z-index: 100;
+  }
+  .z-\[110\] {
+    z-index: 110;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-1 {
+    margin-top: calc(var(--spacing) * 1);
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
+  }
+  .mt-6 {
+    margin-top: calc(var(--spacing) * 6);
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
+  .mr-3 {
+    margin-right: calc(var(--spacing) * 3);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mb-2 {
+    margin-bottom: calc(var(--spacing) * 2);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
+  }
+  .mb-12 {
+    margin-bottom: calc(var(--spacing) * 12);
+  }
+  .mb-24 {
+    margin-bottom: calc(var(--spacing) * 24);
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
+  .h-24 {
+    height: calc(var(--spacing) * 24);
+  }
+  .h-56 {
+    height: calc(var(--spacing) * 56);
+  }
+  .h-\[30vh\] {
+    height: 30vh;
+  }
+  .h-\[100svh\] {
+    height: 100svh;
+  }
+  .h-\[400px\] {
+    height: 400px;
+  }
+  .h-\[600px\] {
+    height: 600px;
+  }
+  .h-\[800px\] {
+    height: 800px;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
+  .w-24 {
+    width: calc(var(--spacing) * 24);
+  }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+  .w-\[1px\] {
+    width: 1px;
+  }
+  .w-\[2px\] {
+    width: 2px;
+  }
+  .w-\[450px\] {
+    width: 450px;
+  }
+  .w-\[600px\] {
+    width: 600px;
+  }
+  .w-\[800px\] {
+    width: 800px;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-2xl {
+    max-width: var(--container-2xl);
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
+  }
+  .max-w-7xl {
+    max-width: var(--container-7xl);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-\[10vw\] {
+    --tw-translate-x: 10vw;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-\[40vw\] {
+    --tw-translate-x: 40vw;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-x-\[90vw\] {
+    --tw-translate-x: 90vw;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-1\/2 {
+    --tw-translate-y: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-y-full {
+    --tw-translate-y: -100%;
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .translate-y-0 {
+    --tw-translate-y: calc(var(--spacing) * 0);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-scale-x-100 {
+    --tw-scale-x: calc(100% * -1);
+    scale: var(--tw-scale-x) var(--tw-scale-y);
+  }
+  .-skew-x-12 {
+    --tw-skew-x: skewX(calc(12deg * -1));
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .animate-bounce {
+    animation: var(--animate-bounce);
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .gap-2 {
+    gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .space-y-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .self-end {
+    align-self: flex-end;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-t {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
+  .border-white\/5 {
+    border-color: color-mix(in srgb, #fff 5%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+    }
+  }
+  .border-white\/10 {
+    border-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-black\/95 {
+    background-color: color-mix(in srgb, #000 95%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 95%, transparent);
+    }
+  }
+  .bg-dark-700 {
+    background-color: var(--color-dark-700);
+  }
+  .bg-dark-900 {
+    background-color: var(--color-dark-900);
+  }
+  .bg-neon-500 {
+    background-color: var(--color-neon-500);
+  }
+  .bg-transparent {
+    background-color: transparent;
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/10 {
+    background-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .bg-gradient-to-b {
+    --tw-gradient-position: to bottom in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-br {
+    --tw-gradient-position: to bottom right in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-r {
+    --tw-gradient-position: to right in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .bg-gradient-to-t {
+    --tw-gradient-position: to top in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
+  .from-black {
+    --tw-gradient-from: var(--color-black);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-dark-800 {
+    --tw-gradient-from: var(--color-dark-800);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-dark-900 {
+    --tw-gradient-from: var(--color-dark-900);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-dark-900\/80 {
+    --tw-gradient-from: color-mix(in srgb, #050505 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-from: color-mix(in oklab, var(--color-dark-900) 80%, transparent);
+    }
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-neon-500 {
+    --tw-gradient-from: var(--color-neon-500);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .from-transparent {
+    --tw-gradient-from: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .via-black\/80 {
+    --tw-gradient-via: color-mix(in srgb, #000 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-via: color-mix(in oklab, var(--color-black) 80%, transparent);
+    }
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .via-dark-900\/50 {
+    --tw-gradient-via: color-mix(in srgb, #050505 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-via: color-mix(in oklab, var(--color-dark-900) 50%, transparent);
+    }
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .via-neon-500 {
+    --tw-gradient-via: var(--color-neon-500);
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .to-black {
+    --tw-gradient-to: var(--color-black);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-dark-900 {
+    --tw-gradient-to: var(--color-dark-900);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-orange-400 {
+    --tw-gradient-to: var(--color-orange-400);
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .to-transparent {
+    --tw-gradient-to: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
+  .bg-clip-text {
+    background-clip: text;
+  }
+  .object-contain {
+    object-fit: contain;
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .object-center {
+    object-position: center;
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-6 {
+    padding-inline: calc(var(--spacing) * 6);
+  }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
+  .pt-10 {
+    padding-top: calc(var(--spacing) * 10);
+  }
+  .pb-10 {
+    padding-bottom: calc(var(--spacing) * 10);
+  }
+  .pb-24 {
+    padding-bottom: calc(var(--spacing) * 24);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-base {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+  }
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+  }
+  .text-xl {
+    font-size: var(--text-xl);
+    line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .text-xs {
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
+  .leading-tight {
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  .font-black {
+    --tw-font-weight: var(--font-weight-black);
+    font-weight: var(--font-weight-black);
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
+  .tracking-\[0\.2em\] {
+    --tw-tracking: 0.2em;
+    letter-spacing: 0.2em;
+  }
+  .tracking-tighter {
+    --tw-tracking: var(--tracking-tighter);
+    letter-spacing: var(--tracking-tighter);
+  }
+  .tracking-wider {
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+  }
+  .tracking-widest {
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+  }
+  .break-words {
+    overflow-wrap: break-word;
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-gray-200 {
+    color: var(--color-gray-200);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+  .text-gray-400 {
+    color: var(--color-gray-400);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-neon-500 {
+    color: var(--color-neon-500);
+  }
+  .text-transparent {
+    color: transparent;
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .opacity-0 {
+    opacity: 0%;
+  }
+  .opacity-20 {
+    opacity: 20%;
+  }
+  .opacity-30 {
+    opacity: 30%;
+  }
+  .opacity-50 {
+    opacity: 50%;
+  }
+  .opacity-70 {
+    opacity: 70%;
+  }
+  .opacity-90 {
+    opacity: 90%;
+  }
+  .opacity-100 {
+    opacity: 100%;
+  }
+  .mix-blend-overlay {
+    mix-blend-mode: overlay;
+  }
+  .mix-blend-screen {
+    mix-blend-mode: screen;
+  }
+  .shadow-\[0_-20px_50px_rgba\(0\,0\,0\,1\)\] {
+    --tw-shadow: 0 -20px 50px var(--tw-shadow-color, rgba(0,0,0,1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-neon {
+    --tw-shadow: 0 0 20px var(--tw-shadow-color, rgba(255,77,0,.5)), 0 0 40px var(--tw-shadow-color, rgba(255,77,0,.3));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .blur-\[20px\] {
+    --tw-blur: blur(20px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-2xl {
+    --tw-drop-shadow-size: drop-shadow(0 25px 25px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.15)));
+    --tw-drop-shadow: drop-shadow(var(--drop-shadow-2xl));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-\[0_15px_15px_rgba\(0\,0\,0\,0\.9\)\] {
+    --tw-drop-shadow-size: drop-shadow(0 15px 15px var(--tw-drop-shadow-color, rgba(0,0,0,0.9)));
+    --tw-drop-shadow: var(--tw-drop-shadow-size);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-lg {
+    --tw-drop-shadow-size: drop-shadow(0 4px 4px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.15)));
+    --tw-drop-shadow: drop-shadow(var(--drop-shadow-lg));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow-md {
+    --tw-drop-shadow-size: drop-shadow(0 3px 3px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.12)));
+    --tw-drop-shadow: drop-shadow(var(--drop-shadow-md));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .grayscale {
+    --tw-grayscale: grayscale(100%);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .backdrop-blur-md {
+    --tw-backdrop-blur: blur(var(--blur-md));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .backdrop-blur-xl {
+    --tw-backdrop-blur: blur(var(--blur-xl));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+  }
+  .transition-all {
+    transition-property: all;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-colors {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-transform {
+    transition-property: transform, translate, scale, rotate;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .duration-300 {
+    --tw-duration: 300ms;
+    transition-duration: 300ms;
+  }
+  .duration-500 {
+    --tw-duration: 500ms;
+    transition-duration: 500ms;
+  }
+  .duration-700 {
+    --tw-duration: 700ms;
+    transition-duration: 700ms;
+  }
+  .group-hover\:scale-105 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .group-hover\:opacity-20 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 20%;
+      }
+    }
+  }
+  .hover\:-translate-y-2 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-translate-y: calc(var(--spacing) * -2);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .hover\:scale-105 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 105%;
+        --tw-scale-y: 105%;
+        --tw-scale-z: 105%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-\[1\.02\] {
+    &:hover {
+      @media (hover: hover) {
+        scale: 1.02;
+      }
+    }
+  }
+  .hover\:bg-neon-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-neon-500);
+      }
+    }
+  }
+  .hover\:bg-white {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-white);
+      }
+    }
+  }
+  .hover\:text-neon-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-neon-500);
+      }
+    }
+  }
+  .hover\:shadow-neon-hover {
+    &:hover {
+      @media (hover: hover) {
+        --tw-shadow: 0 0 30px var(--tw-shadow-color, rgba(255,77,0,.8)), 0 0 60px var(--tw-shadow-color, rgba(255,77,0,.5));
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+    }
+  }
+  .hover\:grayscale-0 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-grayscale: grayscale(0%);
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+      }
+    }
+  }
+  .sm\:grid-cols-2 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .sm\:px-6 {
+    @media (width >= 40rem) {
+      padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+  .sm\:text-6xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
+    }
+  }
+  .sm\:text-base {
+    @media (width >= 40rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .md\:top-8 {
+    @media (width >= 48rem) {
+      top: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:right-8 {
+    @media (width >= 48rem) {
+      right: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:-bottom-4 {
+    @media (width >= 48rem) {
+      bottom: calc(var(--spacing) * -4);
+    }
+  }
+  .md\:-left-10 {
+    @media (width >= 48rem) {
+      left: calc(var(--spacing) * -10);
+    }
+  }
+  .md\:mt-6 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 6);
+    }
+  }
+  .md\:mt-8 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:mt-20 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:mb-4 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 4);
+    }
+  }
+  .md\:mb-6 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 6);
+    }
+  }
+  .md\:mb-8 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:mb-10 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:mb-12 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:mb-16 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 16);
+    }
+  }
+  .md\:mb-20 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:mb-32 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 32);
+    }
+  }
+  .md\:flex {
+    @media (width >= 48rem) {
+      display: flex;
+    }
+  }
+  .md\:hidden {
+    @media (width >= 48rem) {
+      display: none;
+    }
+  }
+  .md\:h-48 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 48);
+    }
+  }
+  .md\:h-64 {
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 64);
+    }
+  }
+  .md\:h-\[500px\] {
+    @media (width >= 48rem) {
+      height: 500px;
+    }
+  }
+  .md\:h-\[1000px\] {
+    @media (width >= 48rem) {
+      height: 1000px;
+    }
+  }
+  .md\:w-48 {
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 48);
+    }
+  }
+  .md\:w-\[2px\] {
+    @media (width >= 48rem) {
+      width: 2px;
+    }
+  }
+  .md\:w-\[3px\] {
+    @media (width >= 48rem) {
+      width: 3px;
+    }
+  }
+  .md\:w-\[4px\] {
+    @media (width >= 48rem) {
+      width: 4px;
+    }
+  }
+  .md\:w-\[700px\] {
+    @media (width >= 48rem) {
+      width: 700px;
+    }
+  }
+  .md\:w-\[1000px\] {
+    @media (width >= 48rem) {
+      width: 1000px;
+    }
+  }
+  .md\:w-auto {
+    @media (width >= 48rem) {
+      width: auto;
+    }
+  }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-cols-3 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .md\:gap-4 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 4);
+    }
+  }
+  .md\:gap-8 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:gap-12 {
+    @media (width >= 48rem) {
+      gap: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:space-y-4 {
+    @media (width >= 48rem) {
+      :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+      }
+    }
+  }
+  .md\:p-8 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:px-8 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:px-10 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 10);
+    }
+  }
+  .md\:px-12 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 12);
+    }
+  }
+  .md\:py-5 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 5);
+    }
+  }
+  .md\:py-24 {
+    @media (width >= 48rem) {
+      padding-block: calc(var(--spacing) * 24);
+    }
+  }
+  .md\:text-2xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
+  .md\:text-3xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+  }
+  .md\:text-4xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .md\:text-5xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-5xl);
+      line-height: var(--tw-leading, var(--text-5xl--line-height));
+    }
+  }
+  .md\:text-7xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-7xl);
+      line-height: var(--tw-leading, var(--text-7xl--line-height));
+    }
+  }
+  .md\:text-8xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-8xl);
+      line-height: var(--tw-leading, var(--text-8xl--line-height));
+    }
+  }
+  .md\:text-base {
+    @media (width >= 48rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
+    }
+  }
+  .md\:text-lg {
+    @media (width >= 48rem) {
+      font-size: var(--text-lg);
+      line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .md\:text-sm {
+    @media (width >= 48rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
+    }
+  }
+  .md\:text-xl {
+    @media (width >= 48rem) {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .md\:tracking-\[0\.3em\] {
+    @media (width >= 48rem) {
+      --tw-tracking: 0.3em;
+      letter-spacing: 0.3em;
+    }
+  }
+  .md\:blur-\[30px\] {
+    @media (width >= 48rem) {
+      --tw-blur: blur(30px);
+      filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+    }
+  }
+  .lg\:grid-cols-4 {
+    @media (width >= 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+  .lg\:px-8 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 8);
+    }
+  }
+  .lg\:text-9xl {
+    @media (width >= 64rem) {
+      font-size: var(--text-9xl);
+      line-height: var(--tw-leading, var(--text-9xl--line-height));
+    }
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-space-y-reverse {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-gradient-position {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-via {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0000;
+}
+@property --tw-gradient-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-via-stops {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-gradient-from-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+@property --tw-gradient-via-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+@property --tw-gradient-to-position {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-gradient-position: initial;
+      --tw-gradient-from: #0000;
+      --tw-gradient-via: #0000;
+      --tw-gradient-to: #0000;
+      --tw-gradient-stops: initial;
+      --tw-gradient-via-stops: initial;
+      --tw-gradient-from-position: 0%;
+      --tw-gradient-via-position: 50%;
+      --tw-gradient-to-position: 100%;
+      --tw-leading: initial;
+      --tw-font-weight: initial;
+      --tw-tracking: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
+      --tw-duration: initial;
+    }
+  }
+}
 
-    <style>
+/* PAISAGENS COMPLEMENTARES — escopo isolado, sem alterar os cards/efeito da moto */
+.gavioli-region-extras{margin:42px 0 12px;padding:25px;background:linear-gradient(140deg,rgba(255,77,0,.065),rgba(17,17,17,.65) 48%,#0b0b0b);border:1px solid rgba(255,255,255,.13);border-radius:22px}
+.gavioli-extras-head{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
+.gavioli-extras-head h3{color:white;font-size:clamp(21px,3vw,27px);font-weight:900;font-style:italic;letter-spacing:-.03em;line-height:1.18}
+.gavioli-extras-head h3 i{color:#ff4d00;font-size:25px;vertical-align:middle}
+.gavioli-extras-head p{color:#dedede;font-size:14px;line-height:1.65;max-width:700px;margin-top:7px}
+.gavioli-landscapes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:17px}
+.gavioli-landscape-figure{background:#131313;border:1px solid rgba(255,255,255,.14);border-radius:16px;overflow:hidden;min-width:0}
+.gavioli-landscape-figure img{display:block;width:100%;height:230px;object-fit:cover;cursor:zoom-in;transition:filter .25s,transform .4s;background:#1d1d1d}
+.gavioli-landscape-figure img:hover{filter:brightness(1.1);transform:scale(1.018)}
+.gavioli-landscape-figure figcaption{padding:13px 15px 16px;color:#f1f1f1;font-size:13px;font-weight:750;line-height:1.5}
+.gavioli-landscape-figure figcaption strong{display:block;font-size:14px;color:#fff;margin-bottom:5px}
+.gavioli-landscape-figure figcaption a{color:#ff985f;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:700}
+.gavioli-landscape-figure .gavioli-missing{display:none;padding:30px 15px;color:#eaeaea;min-height:130px;align-items:center;justify-content:center;text-align:center}
+.gavioli-landscape-figure.is-unavailable img{display:none}
+.gavioli-landscape-figure.is-unavailable .gavioli-missing{display:flex}
+.gavioli-extras-notice{margin:17px 0;color:#bdbdbd;font-size:12px;line-height:1.6}
+.gavioli-region-map{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;margin-top:20px}
+.gavioli-region-map-head{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.gavioli-region-map-head p{font-size:14px;color:#e3e3e3;line-height:1.6;flex:1;min-width:220px}
+.gavioli-region-map-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(255,77,0,.6);border-radius:11px;background:rgba(255,77,0,.13);color:#ffb58d;font-weight:900;font-size:13px;padding:12px 18px;cursor:pointer}
+.gavioli-region-map-toggle:hover{background:#ff4d00;color:#0b0b0b}
+.gavioli-region-map-toggle:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.gavioli-region-map-panel{margin-top:18px;border:1px solid rgba(255,255,255,.14);border-radius:15px;overflow:hidden;background:#171717}
+.gavioli-region-map-panel[hidden]{display:none}
+.gavioli-region-map-panel iframe{display:block;width:100%;height:330px;border:0;background:#171717}
+.gavioli-region-map-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:11px 14px;align-items:center;color:#ddd;font-size:12px;line-height:1.5}
+.gavioli-region-map-footer a{color:#ff995d;font-weight:800;text-decoration:underline}
+.gavioli-gallery-instagram{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#252025;border:1px solid rgba(240,177,224,.4);color:#fff;border-radius:12px;padding:12px 19px;min-height:46px;font-size:13px;font-weight:900;text-decoration:none}
+.gavioli-gallery-instagram:hover{background:#56304a}
+@media(max-width:650px){.gavioli-region-extras{padding:17px;margin-top:29px}.gavioli-landscape-figure img{height:205px}.gavioli-region-map-toggle{width:100%}.gavioli-region-map-panel iframe{height:260px}}
+@media(prefers-reduced-motion:reduce){.gavioli-landscape-figure img{transition:none}}
+</style>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,900&amp;display=swap" rel="stylesheet"/>
+<!-- Phosphor Icons -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<!-- GSAP & ScrollTrigger -->
+
+<style>
+
         body, html {
+
             margin: 0;
+
             padding: 0;
+
             overflow-x: hidden;
+
             background-color: #050505;
+
             color: #ffffff;
+
             width: 100%;
+
         }
+
+
 
         ::-webkit-scrollbar { width: 6px; }
+
         ::-webkit-scrollbar-track { background: #050505; }
+
         ::-webkit-scrollbar-thumb { background: #141414; border-radius: 4px; }
+
         ::-webkit-scrollbar-thumb:hover { background: #ff4d00; }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
 
+
+
         /* Estilo do Header quando ele aparece */
+
         .glass-nav {
+
             background: rgba(5, 5, 5, 0.95);
+
             backdrop-filter: blur(16px);
+
             -webkit-backdrop-filter: blur(16px);
+
             border-bottom: 1px solid rgba(255, 77, 0, 0.3);
+
         }
 
+
+
         .glass-card {
+
             background: rgba(20, 20, 20, 0.4);
+
             backdrop-filter: blur(16px);
+
             -webkit-backdrop-filter: blur(16px);
+
             border: 1px solid rgba(255, 255, 255, 0.05);
+
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+
             transition: all 0.4s ease;
+
         }
-        
+
+
+
         .glass-card:hover {
+
             background: rgba(30, 30, 30, 0.6);
+
             border-color: rgba(255, 77, 0, 0.3);
+
             transform: translateY(-5px);
+
         }
+
+
 
         .text-glow { text-shadow: 0 0 15px rgba(255, 77, 0, 0.8); }
 
+
+
         #loader {
+
             position: fixed; inset: 0; background: #050505; z-index: 99999;
+
             display: flex; justify-content: center; align-items: center; flex-direction: column;
+
         }
+
         .loader-progress {
+
             width: 0%; height: 100%; background: #ff4d00; box-shadow: 0 0 10px #ff4d00;
+
         }
+
         .clip-img { clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
 
+
+
         .neon-orb {
+
             background: radial-gradient(circle, rgba(255,77,0,0.15) 0%, rgba(255,77,0,0) 70%);
+
         }
-        
+
+
+
         /* Moto Wrapper otimizado */
+
         #bike-wrapper {
+
             will-change: transform, opacity;
+
             transform-origin: center center; 
+
         }
-    </style>
+
+
+        /* Mesma primeira tela do projeto aprovado, com pin nativo confiável. */
+        html, body { overflow-x: clip; }
+        .gavioli-bike-stage { position: relative; height: 220svh; }
+        .gavioli-bike-stage > #hero { position: sticky; top: 0; }
+        @media (max-width: 768px) {
+            .gavioli-bike-stage { height: 210svh; }
+        }
+        /* Melhorias técnicas sem alterar a aparência normal do site. */
+        #guia, #lugares, #contato { scroll-margin-top: 88px; }
+        a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+            outline: 3px solid #ff4d00;
+            outline-offset: 4px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            .animate-bounce { animation: none !important; }
+            .glass-card, .glass-card:hover { transition: none !important; transform: none !important; }
+        }
+
+/* ========= GAVIOLI UX PRO — visual original evoluído ========= */
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{overflow-x:clip}
+#bike-stage{position:relative;height:315svh;isolation:isolate}
+#bike-stage>#hero{position:sticky;top:0;height:100svh;overflow:hidden;contain:layout paint}
+#bike-wrapper{left:50%;opacity:.95;transform:translate3d(-100%,0,0) scale(.85);transform-origin:center center;will-change:transform,opacity}
+#dirt-bike{pointer-events:none}
+#impact-flash{position:absolute;inset:0;z-index:48;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,77,0,.5),rgba(5,5,5,.1) 60%,#050505 100%)}
+.ride-progress{position:absolute;z-index:57;bottom:22px;left:50%;transform:translateX(-50%);width:min(390px,85vw);display:flex;align-items:center;gap:11px;color:#ddd;transition:opacity .25s;pointer-events:none}
+.ride-progress-label,.ride-progress-indicator{font-size:9px;font-weight:800;letter-spacing:.09em;white-space:nowrap}
+.ride-progress-label{color:#ff7b45}.ride-progress-track{background:rgba(255,255,255,.18);height:3px;flex:1;border-radius:99px;overflow:hidden}.ride-progress-track span{display:block;height:100%;width:0%;background:#ff4d00;box-shadow:0 0 12px rgba(255,77,0,.8);will-change:width}
+#hero-text{max-width:100%;will-change:opacity,transform}
+#speed-lines,#dust-particles{pointer-events:none}
+#main-content{position:relative;z-index:4}
+#guia,#lugares,#como-funciona,#contato{scroll-margin-top:100px}
+@media(max-width:640px){#bike-stage{height:285svh}#bike-wrapper{width:min(450px,115vw)}.ride-progress{bottom:14px}.ride-progress-label{font-size:8px}}
+/* Cards: imagem real, informação útil e duas ações independentes */
+.trail-card{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.11);border-radius:22px;background:linear-gradient(145deg,#171717,#0a0a0a);box-shadow:0 15px 40px rgba(0,0,0,.34);transition:transform .36s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .3s}
+.trail-card:hover{transform:translateY(-8px);border-color:rgba(255,77,0,.55);box-shadow:0 25px 50px rgba(0,0,0,.48),0 0 35px rgba(255,77,0,.08)}
+.trail-card-cover{height:226px;position:relative;overflow:hidden;background:#191919;flex:none}
+.trail-card-photo{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .65s cubic-bezier(.2,.7,.2,1),filter .5s}
+.trail-card:hover .trail-card-photo{transform:scale(1.075);filter:saturate(1.13)}
+.trail-card-photo-wash{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(5,5,5,.5),rgba(5,5,5,.07) 36%,rgba(5,5,5,.8) 100%)}
+.trail-card-region{position:absolute;left:16px;top:16px;color:#fff;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.2);border-radius:99px;padding:8px 12px;font-size:10px;font-weight:900;letter-spacing:.12em;backdrop-filter:blur(8px);text-shadow:0 2px 8px rgba(0,0,0,.45)}
+.trail-card-photo-count{position:absolute;bottom:16px;left:16px;color:#fff;display:flex;gap:6px;align-items:center;font-weight:900;font-size:12px;background:rgba(0,0,0,.58);border:1px solid rgba(255,255,255,.16);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}
+.trail-card-giant-num{display:none}
+.trail-card-body{display:flex;flex-direction:column;flex:1;padding:22px;background:linear-gradient(180deg,rgba(18,18,18,.98) 0%,rgba(8,8,8,1) 100%);position:relative}
+.trail-card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.trail-card-eyebrow{font-size:10px;color:#f0f0f0;font-weight:900;letter-spacing:.16em;margin:0 0 7px;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.trail-card h4{font-size:clamp(24px,2.1vw,30px);line-height:1.05;font-weight:900;font-style:italic;text-transform:uppercase;color:#fff;margin:0;text-shadow:0 3px 14px rgba(0,0,0,.28)}
+.trail-card-compass{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:50%;border:1px solid rgba(255,77,0,.5);color:#ff4d00;font-size:22px;background:rgba(255,77,0,.08);box-shadow:0 0 0 4px rgba(255,77,0,.06)}
+.trail-card-tagline{font-size:14px;font-weight:900;color:#ff6a2d;margin:12px 0 0;line-height:1.35}
+.trail-card-desc{font-size:13px;line-height:1.72;color:#e2e2e2;margin:12px 0 18px;min-height:68px}
+.trail-card-tags{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.trail-card-tags span{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.12);border-radius:99px;background:rgba(255,255,255,.08);padding:6px 10px;font-size:10px;line-height:1.2;color:#f1f1f1;font-weight:800}
+.trail-card-actions{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:auto}
+.trail-view-photos,.trail-card-whatsapp{min-height:43px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:900;font-size:11px;line-height:1.3;text-align:center;transition:background .2s,color .2s,transform .2s}
+.trail-view-photos{border:0;background:#ff4d00;color:#090909;padding:11px 9px;cursor:pointer}.trail-view-photos:hover{background:#fff;transform:translateY(-2px)}
+.trail-card-whatsapp{background:#202020;color:#fff;border:1px solid #363636;text-decoration:none;padding:9px}.trail-card-whatsapp:hover{background:#1c5735;border-color:#2f9b5c}
+.trail-card button:focus-visible,.trail-card a:focus-visible,.gallery-thumbnail:focus-visible{outline:3px solid #ff4d00;outline-offset:3px}
+@media(min-width:1024px){.trail-card-body{padding:19px}.trail-card-actions{grid-template-columns:1fr}.trail-card-desc{min-height:76px}}
+@media(min-width:1280px){.trail-card-actions{grid-template-columns:1fr auto}.trail-card-whatsapp span{display:none}}
+@media(max-width:639px){.trail-card-cover{height:235px}.trail-card-body{padding:22px}.trail-card-desc{min-height:unset;font-size:13px}.trail-card-tagline{font-size:13px}.trail-card-actions{grid-template-columns:1fr 1fr}.trail-card h4{font-size:clamp(23px,7vw,28px)}}
+/* Practical conversion journey */
+.how-section{position:relative;overflow:hidden;margin:0 0 110px;padding:46px 26px 52px;border:1px solid rgba(255,255,255,.11);border-radius:28px;background:radial-gradient(ellipse at 50% 0%,rgba(255,77,0,.1),transparent 60%),linear-gradient(160deg,#111,#050505);text-align:center}
+.how-kicker{color:#ff4d00;font-weight:900;letter-spacing:.2em;font-size:11px;margin:0 0 12px}
+.how-intro h2{font-weight:900;font-style:italic;letter-spacing:-.035em;line-height:1.08;font-size:clamp(30px,4.5vw,52px);max-width:760px;margin:auto}.how-intro h2 span{color:#ff4d00}
+.how-intro>p:last-child{color:#aaa;line-height:1.7;max-width:580px;margin:15px auto 0;font-size:14px}
+.how-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:32px 0}
+.how-step{position:relative;padding:30px 18px 25px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.025);text-align:left}
+.how-step-index{position:absolute;top:12px;right:15px;color:#ff4d00;font-size:14px;font-weight:900;opacity:.65}
+.how-step>i{font-size:34px;color:#ff4d00;display:block;margin-bottom:16px}
+.how-step h3{font-size:14px;line-height:1.4;font-weight:900;margin:0 0 9px;color:#fff}
+.how-step p{font-size:12px;line-height:1.7;color:#a9a9a9;margin:0}
+.how-cta{display:inline-flex;gap:12px;align-items:center;justify-content:center;padding:15px 25px;border-radius:11px;background:#ff4d00;color:#0b0b0b;font-size:12px;font-weight:900;text-decoration:none;transition:background .2s,transform .2s}
+.how-cta:hover{background:#fff;transform:translateY(-2px)}
+@media(max-width:680px){.how-section{padding:36px 18px;margin-bottom:70px}.how-steps{grid-template-columns:1fr;text-align:left}.how-step{padding:21px 20px}.how-step>i{margin-bottom:8px}.how-cta{width:100%}}
+/* Photo viewer for the existing four photo galleries */
+.gallery-thumbnail{cursor:zoom-in;transition:transform .3s,filter .3s}
+.gallery-thumbnail:hover{filter:brightness(1.12)}
+.photo-lightbox{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.96);display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:10px;padding:50px 18px 20px;backdrop-filter:blur(18px)}
+.photo-lightbox[hidden]{display:none!important}
+.lb-figure{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;min-width:0;height:100%;max-height:100%;margin:0}
+.lb-figure img{display:block;max-width:100%;max-height:min(77vh,830px);width:auto;height:auto;object-fit:contain;border-radius:9px;box-shadow:0 18px 70px #000}
+.lb-figure figcaption{color:#ccc;text-align:center;font-size:12px}
+.lb-nav,.lb-close{cursor:pointer;display:grid;place-items:center;border-radius:50%;width:45px;height:45px;background:#262626;color:white;border:1px solid rgba(255,255,255,.2);font-size:21px}
+.lb-nav:hover,.lb-close:hover{background:#ff4d00;color:#000}
+.lb-close{position:absolute;top:14px;right:14px;z-index:2}
+@media(max-width:639px){.photo-lightbox{gap:4px;padding:75px 7px 38px}.lb-nav{width:32px;height:45px;border-radius:9px}.lb-figure img{max-height:72vh}}
+@media(prefers-reduced-motion:reduce){#bike-wrapper{will-change:auto}.trail-card,.trail-card-photo,.trail-view-photos,.how-cta{transition:none!important}html{scroll-behavior:auto!important}}
+
+/* ===== AJUSTE DE LEITURA DOS CARDS — NÃO ALTERA HERO NEM GALERIAS ===== */
+.trail-card-body{background:linear-gradient(180deg,#17191d 0%,#101114 100%);border-top:1px solid rgba(255,255,255,.08)}
+.trail-card-eyebrow{font:800 11px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.15em;color:#d9dce3;margin-bottom:9px}
+.trail-card h4{font-size:clamp(23px,2.2vw,29px);line-height:1.14;letter-spacing:-.02em}
+.trail-card-tagline{font:800 15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;color:#ff814e;margin-top:14px}
+.trail-card-desc{font:500 14.5px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.002em;color:#f0f1f4;margin:13px 0 18px;min-height:120px}
+.trail-card-tags{gap:8px;margin-bottom:19px}
+.trail-card-tags span{font:700 11.5px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;padding:8px 11px;color:#f8f8fb;background:#292c31;border-color:#42464c;letter-spacing:0}
+.trail-card-photo-count{font:800 12px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif}
+.trail-card-region{font:900 10px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.085em}
+.trail-view-photos,.trail-card-whatsapp{font:800 13px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:46px}
+.trail-card-whatsapp span{display:inline!important}
+.trail-card-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.gallery-social-actions{display:flex;flex-wrap:wrap;gap:12px;margin:-16px 0 24px}
+.gallery-social-actions a{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:12px 19px;border-radius:12px;text-decoration:none;font:800 13px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+.gallery-social-wa{color:#092310;background:#36cf75}
+.header-instagram{display:none;align-items:center;gap:8px;color:#fff;text-decoration:none;font:900 11px/1.3 system-ui,sans-serif;border:1px solid rgba(255,255,255,.23);padding:10px 13px;border-radius:999px}
+.header-instagram i{font-size:19px;color:#ff7848}
+@media(min-width:768px){.header-instagram{display:flex}}
+.mobile-social-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:8px}
+.mobile-social-links a{font:900 14px system-ui,sans-serif;display:inline-flex;align-items:center;gap:9px;color:white;text-decoration:none;background:#171717;border:1px solid #555;border-radius:12px;padding:12px 18px}
+.mobile-social-links i{font-size:20px;color:#ff7540}
+.footer-social{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:0 auto 18px}
+.footer-social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font:700 13px system-ui,sans-serif;color:#e7e7e7;padding:10px 13px;border:1px solid rgba(255,255,255,.17);border-radius:12px}
+.footer-social i{font-size:19px;color:#ff7540}
+@media(max-width:1279px) and (min-width:1024px){.trail-card-actions{grid-template-columns:1fr}.trail-card-desc{min-height:158px}}
+@media(min-width:1280px){.trail-card-actions{grid-template-columns:1fr 1fr}.trail-card-desc{min-height:140px}}
+@media(max-width:767px){.trail-card-desc{min-height:0;font-size:15px;line-height:1.68}.trail-card-tags span{font-size:12px}.trail-card-body{padding:22px}.gallery-social-actions{margin-top:-8px}.gallery-social-actions a{flex:1 1 160px}.footer-social{margin-bottom:22px}#main-content{padding-bottom:110px}}
+@media(min-width:768px) and (max-width:1023px){.trail-card-desc{min-height:130px}}
+#modal-ibitipoca>button:first-child,#modal-bomjardim>button:first-child,#modal-riopreto>button:first-child,#modal-limaduarte>button:first-child{min-height:48px;height:48px;flex-shrink:0}
+#bike-wrapper{opacity:0;transform:translate3d(-230%,10vh,0) rotate(-8deg) scale(.68)}
+@media(prefers-reduced-motion:reduce){.trail-card,.trail-card-photo{transition:none}}
+
+</style>
 </head>
 <body class="relative">
+<!-- LOADER -->
+<div id="loader">
+<h1 class="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic px-4 text-center">
 
-    <!-- LOADER -->
-    <div id="loader">
-        <h1 class="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase italic px-4 text-center">
             Aquecendo os <span class="text-neon-500 text-glow">Motores</span>
-        </h1>
-        <div class="w-48 h-1 bg-dark-700 mt-6 overflow-hidden relative">
-            <div class="loader-progress absolute top-0 left-0" id="loader-progress"></div>
-        </div>
-    </div>
+</h1>
+<div class="w-48 h-1 bg-dark-700 mt-6 overflow-hidden relative">
+<div class="loader-progress absolute top-0 left-0" id="loader-progress"></div>
+</div>
+</div>
+<!-- HEADER & NAV (COMEÇA INVISÍVEL) -->
+<nav class="fixed w-full top-0 z-[70] transition-all duration-500 py-4 bg-transparent -translate-y-full opacity-0 pointer-events-none" id="navbar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
+<a class="text-2xl md:text-3xl font-black italic tracking-tighter text-white relative z-[80]" href="#hero">GAVIOLI<span class="text-neon-500 text-glow">TRILHAS</span></a>
+<ul class="hidden md:flex gap-8 text-sm font-bold tracking-widest uppercase text-gray-300">
+<li><a class="hover:text-neon-500 transition-colors" href="#hero">Início</a></li>
+<li><a class="hover:text-neon-500 transition-colors" href="#guia">O Guia</a></li>
+<li><a class="hover:text-neon-500 transition-colors" href="#lugares">Trilhas</a></li>
+<li><a class="hover:text-neon-500 transition-colors" href="#como-funciona">Como funciona</a></li>
+</ul>
+<a class="header-instagram" data-instagram-link href="https://www.instagram.com/" aria-label="Instagram de Pedro Gavioli" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> INSTAGRAM</a>
+<a class="hidden md:flex items-center gap-2 bg-neon-500 hover:bg-white text-black px-6 py-2 rounded-full font-bold italic transition-all transform hover:scale-105 shadow-neon" href="https://wa.me/5532000000000" target="_blank">
+<i class="ph-fill ph-whatsapp-logo text-xl"></i> AGENDAR
 
-    <!-- HEADER & NAV (COMEÇA INVISÍVEL) -->
-    <nav id="navbar" class="fixed w-full top-0 z-[70] transition-all duration-500 py-4 bg-transparent -translate-y-full opacity-0 pointer-events-none">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center w-full">
-            <a href="#hero" class="text-2xl md:text-3xl font-black italic tracking-tighter text-white relative z-[80]">
-                TRILHA<span class="text-neon-500 text-glow">PRO</span>
             </a>
-            
-            <ul class="hidden md:flex gap-8 text-sm font-bold tracking-widest uppercase text-gray-300">
-                <li><a href="#hero" class="hover:text-neon-500 transition-colors">Início</a></li>
-                <li><a href="#guia" class="hover:text-neon-500 transition-colors">O Guia</a></li>
-                <li><a href="#lugares" class="hover:text-neon-500 transition-colors">Trilhas</a></li>
-                <li><a href="#servicos" class="hover:text-neon-500 transition-colors">Serviços</a></li>
-            </ul>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="md:hidden text-4xl text-neon-500 relative z-[80] p-2" id="mobile-btn" type="button">
+<i class="ph-fill ph-list"></i>
+</button>
+</div>
+</nav>
+<!-- MOBILE MENU OVERLAY -->
+<div aria-label="Navegação móvel" class="fixed inset-0 bg-black/95 z-[65] hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300 backdrop-blur-xl" id="mobile-menu">
+<a class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500" href="#hero">Início</a>
+<a class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500" href="#guia">O Guia</a>
+<a class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500" href="#lugares">Nossas Trilhas</a>
+<a class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500" href="#como-funciona">Como funciona</a>
+<a class="mobile-link mt-8 bg-neon-500 text-black px-8 py-3 rounded-full font-black italic uppercase text-xl shadow-neon flex items-center gap-2" href="#contato">
+<i class="ph-fill ph-whatsapp-logo"></i> Agendar
 
-            <a href="https://wa.me/5532000000000" target="_blank" class="hidden md:flex items-center gap-2 bg-neon-500 hover:bg-white text-black px-6 py-2 rounded-full font-bold italic transition-all transform hover:scale-105 shadow-neon">
-                <i class="ph-fill ph-whatsapp-logo text-xl"></i> AGENDAR
-            </a>
-
-            <button id="mobile-btn" class="md:hidden text-4xl text-neon-500 relative z-[80] p-2">
-                <i class="ph-fill ph-list"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- MOBILE MENU OVERLAY -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[65] hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300 backdrop-blur-xl">
-        <a href="#hero" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Início</a>
-        <a href="#guia" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">O Guia</a>
-        <a href="#lugares" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Nossas Trilhas</a>
-        <a href="#servicos" class="mobile-link text-3xl font-black uppercase italic text-white hover:text-neon-500">Planos</a>
-        <a href="#contato" class="mobile-link mt-8 bg-neon-500 text-black px-8 py-3 rounded-full font-black italic uppercase text-xl shadow-neon flex items-center gap-2">
-            <i class="ph-fill ph-whatsapp-logo"></i> Agendar
         </a>
-    </div>
+<div class="mobile-social-links">
+<a class="mobile-link mobile-social-ig" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
+</div>
+</div>
+<!-- HERO SECTION (TELA INICIAL PURA) -->
+<div class="gavioli-bike-stage" id="bike-stage"><section class="relative w-full h-[100svh] overflow-hidden bg-dark-900 flex items-center justify-center flex-col" id="hero">
+<div class="parallax-layer absolute inset-0 z-0 w-full h-full" data-depth="0.03">
+<img alt="Trilha Off-Road" class="w-full h-full object-cover object-center opacity-70" data-photo-slot="foto01" decoding="async" fetchpriority="high" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.18 (1).jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/50 to-dark-900"></div>
+<div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] pointer-events-none"></div>
+</div>
+<div class="parallax-layer absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-dark-900 to-transparent z-30" data-depth="0.1"></div>
+<div class="parallax-layer absolute z-20 flex flex-col items-center justify-center text-center px-4 w-full" data-depth="0.08" id="hero-text">
+<h2 class="text-neon-500 font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-lg mb-2 md:mb-4 drop-shadow-lg">
 
-    <!-- HERO SECTION (TELA INICIAL PURA) -->
-    <section id="hero" class="relative w-full h-[100svh] overflow-hidden bg-dark-900 flex items-center justify-center flex-col">
-        
-        <div class="parallax-layer absolute inset-0 z-0 w-full h-full" data-depth="0.03">
-            <img src="img/3760631e-c9ab-43d9-bc69-b68176e06493-removebg-preview.png" alt="Trilha Off-Road" class="w-full h-full object-cover object-center opacity-70">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/80 via-dark-900/50 to-dark-900"></div>
-            <div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] pointer-events-none"></div>
-        </div>
-
-        <div class="parallax-layer absolute bottom-0 left-0 w-full h-[30vh] bg-gradient-to-t from-dark-900 to-transparent z-30" data-depth="0.1"></div>
-
-        <div id="hero-text" class="parallax-layer absolute z-20 flex flex-col items-center justify-center text-center px-4 w-full" data-depth="0.08">
-            <h2 class="text-neon-500 font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-xs md:text-lg mb-2 md:mb-4 drop-shadow-lg">
                 Ibitipoca, Bom Jardim, Rio Preto e Lima Duarte
+
             </h2>
-            <h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase italic leading-none tracking-tighter drop-shadow-2xl">
-                GUIAS DE<br><span class="text-transparent bg-clip-text bg-gradient-to-br from-neon-500 to-orange-400 text-glow">TRILHA</span>
-            </h1>
-            <p class="mt-4 md:mt-6 text-sm sm:text-base md:text-2xl font-bold text-gray-200 max-w-2xl drop-shadow-md">
-                ROLE PARA BAIXO PARA ACELERAR
+<h1 class="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-white uppercase italic leading-none tracking-tighter drop-shadow-2xl">
+
+                Gavioli<br/><span class="text-transparent bg-clip-text bg-gradient-to-br from-neon-500 to-orange-400 text-glow"> GUIA TRILHAS</span>
+</h1>
+<p class="mt-4 md:mt-6 text-sm sm:text-base md:text-2xl font-bold text-gray-200 max-w-2xl drop-shadow-md">
+
+                ROLE PARA BAIXO PARA CONHECER NOSSO TRABALHO
+
             </p>
-            <div class="mt-6 md:mt-8 animate-bounce"><i class="ph ph-caret-double-down text-3xl md:text-4xl text-neon-500 opacity-90 drop-shadow-lg"></i></div>
-        </div>
+<div class="mt-6 md:mt-8 animate-bounce"><i class="ph ph-caret-double-down text-3xl md:text-4xl text-neon-500 opacity-90 drop-shadow-lg"></i></div>
+</div>
+<!-- MOTO ANIMADA 5D (POSICIONAMENTO MATEMÁTICO PERFEITO) -->
+<div class="absolute z-40 bike-motor w-[450px] md:w-[700px] bottom-[5%] flex items-center justify-center" id="bike-wrapper">
+<div class="absolute -bottom-2 -left-6 md:-bottom-4 md:-left-10 w-24 h-24 md:w-48 md:h-48 bg-neon-500 rounded-full blur-[20px] md:blur-[30px] opacity-0 mix-blend-screen" id="dust-particles"></div>
+<img alt="Moto de Trilha Real" class="w-full h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.9)] transform -scale-x-100" data-photo-slot="foto02" decoding="async" fetchpriority="high" id="dirt-bike" src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png"/>
+</div>
+<!-- Speed Lines -->
+<div class="absolute inset-0 pointer-events-none opacity-0 z-50 overflow-hidden flex justify-between" id="speed-lines">
+<div class="w-[1px] md:w-[2px] h-full bg-white opacity-20 transform -skew-x-12 translate-x-[10vw]"></div>
+<div class="w-[2px] md:w-[4px] h-full bg-neon-500 opacity-30 transform -skew-x-12 translate-x-[40vw]"></div>
+<div class="w-[1px] md:w-[3px] h-full bg-neon-500 opacity-20 transform -skew-x-12 translate-x-[90vw]"></div>
+</div>
+<div aria-hidden="true" class="ride-progress" id="ride-progress"><span class="ride-progress-label">ACELERE PARA EXPLORAR</span><div class="ride-progress-track"><span id="ride-progress-bar"></span></div><span class="ride-progress-indicator">01 / 02</span></div><div aria-hidden="true" id="impact-flash"></div></section></div>
+<!-- CONTEÚDO PRINCIPAL (Sobe imediatamente após o hero) -->
+<main class="relative z-40 bg-dark-900 pb-24 shadow-[0_-20px_50px_rgba(0,0,0,1)] w-full overflow-hidden" id="main-content">
+<div class="w-full h-1 bg-gradient-to-r from-transparent via-neon-500 to-transparent opacity-50 mb-10 md:mb-20"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- SEU GUIA -->
+<section class="mb-24 md:mb-32 content-reveal pt-10" id="guia">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+<div class="relative rounded-2xl overflow-hidden border border-white/5 group h-[400px] md:h-[500px]">
+<div class="absolute inset-0 bg-neon-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-overlay z-10"></div>
+<img alt="Foto do Guia de Moto" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" data-photo-slot="foto03" decoding="async" loading="lazy" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.41 (1).jpeg"/>
+<div class="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent z-20">
+<h3 class="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tighter break-words">O SEU GUIA</h3>
+<p class="text-neon-500 font-bold uppercase tracking-widest text-xs md:text-sm mt-1">Especialista em Trilhas da Região</p>
+</div>
+</div>
+<div>
+<h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm md:text-base">A base é Lima Duarte</h2>
+<h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-4 md:mb-6">
 
-        <!-- MOTO ANIMADA 5D (POSICIONAMENTO MATEMÁTICO PERFEITO) -->
-        <div id="bike-wrapper" style="opacity: 0; left: -100vw;" class="absolute z-40 w-[450px] md:w-[700px] bottom-[5%] md:bottom-[5%] flex items-center justify-center">
-            <div id="dust-particles" class="absolute -bottom-2 -left-6 md:-bottom-4 md:-left-10 w-24 h-24 md:w-48 md:h-48 bg-neon-500 rounded-full blur-[20px] md:blur-[30px] opacity-0 mix-blend-screen"></div>
-            <img id="dirt-bike" src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" alt="Moto de Trilha Real" class="w-full h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.9)] transform -scale-x-100">
-        </div>
-        
-        <!-- Speed Lines -->
-        <div id="speed-lines" class="absolute inset-0 pointer-events-none opacity-0 z-50 overflow-hidden flex justify-between">
-            <div class="w-[1px] md:w-[2px] h-full bg-white opacity-20 transform -skew-x-12 translate-x-[10vw]"></div>
-            <div class="w-[2px] md:w-[4px] h-full bg-neon-500 opacity-30 transform -skew-x-12 translate-x-[40vw]"></div>
-            <div class="w-[1px] md:w-[3px] h-full bg-neon-500 opacity-20 transform -skew-x-12 translate-x-[90vw]"></div>
-        </div>
-    </section>
+                            CONHECIMENTO LOCAL,<br/><span class="text-gray-500">Pedro Gavioli.</span>
+</h3>
+<!-- TEXTO ALTERADO COM LINGUAGEM MINEIRA FOCADO EM IBITIPOCA -->
+<p class="text-base md:text-lg text-gray-400 mb-6 md:mb-8 font-light leading-relaxed">
 
-    <!-- CONTEÚDO PRINCIPAL (Sobe imediatamente após o hero) -->
-    <main id="main-content" class="relative z-40 bg-dark-900 pb-24 shadow-[0_-20px_50px_rgba(0,0,0,1)] w-full overflow-hidden">
-        <div class="w-full h-1 bg-gradient-to-r from-transparent via-neon-500 to-transparent opacity-50 mb-10 md:mb-20"></div>
+                            Nascido e criado na região, fiz de Ibitipoca e das serras da região o meu quintal de casa, Conheço cada pirambeira, cada atoleiro e as cavas mais brutas que cortam Conceição de Ibitipoca, Bom Jardim, Rio Preto e Lima Duarte. Meu negócio é botar a turma pra acelerar quilometros de trilhas, garantindo a segurança da galera, mas sempre com aquele desafio que a gente gosta. Pode juntar sua equipe, que o trajeto eu garanto: vai ter barro, paisagem de cair o queixo e aquela legítima hospitalidade mineira. Bora acelerar.
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- SEU GUIA -->
-            <section id="guia" class="mb-24 md:mb-32 content-reveal pt-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                    <div class="relative rounded-2xl overflow-hidden border border-white/5 group h-[400px] md:h-[500px]">
-                        <div class="absolute inset-0 bg-neon-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500 mix-blend-overlay z-10"></div>
-                        <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" alt="Foto do Guia de Moto" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
-                        <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-black via-black/80 to-transparent z-20">
-                            <h3 class="text-3xl md:text-4xl font-black text-white italic uppercase tracking-tighter break-words">O SEU GUIA</h3>
-                            <p class="text-neon-500 font-bold uppercase tracking-widest text-xs md:text-sm mt-1">Especialista em Trilhas da Região</p>
-                        </div>
-                    </div>
-                    <div>
-                        <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm md:text-base">A base é Lima Duarte</h2>
-                        <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-4 md:mb-6">
-                            CONHECIMENTO LOCAL,<br><span class="text-gray-500">PILOTAGEM EXTREMA.</span>
-                        </h3>
-                        <!-- TEXTO ALTERADO COM LINGUAGEM MINEIRA FOCADO EM IBITIPOCA -->
-                        <p class="text-base md:text-lg text-gray-400 mb-6 md:mb-8 font-light leading-relaxed">
-                            Nascido e criado nesse mar de morros, fiz de Ibitipoca e das serras da região o meu quintal de casa, uai! Conheço cada pirambeira, cada atoleiro e as cavas mais brutas que cortam Conceição de Ibitipoca, Bom Jardim, Rio Preto e Lima Duarte. Meu negócio é botar a turma pra suar a camisa nas trilhas, garantindo a segurança da galera, mas sempre com aquele desafio que a gente gosta. Pode juntar sua equipe, que o trajeto eu garanto: vai ter barro, paisagem de cair o queixo e aquela legítima hospitalidade mineira. Bora acelerar, sô!
                         </p>
-                        <ul class="space-y-3 md:space-y-4 mb-8">
-                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Roteiros para todos os níveis de pilotagem.</li>
-                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Trilhas de extrema qualidade.</li>
-                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Muita parceria e resenha garantida.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+<ul class="space-y-3 md:space-y-4 mb-8">
+<li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Roteiros para todos os níveis de pilotagem.</li>
+<li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Trilhas de extrema qualidade.</li>
+<li class="flex items-center gap-3 md:gap-4 text-gray-300 text-base md:text-lg"><i class="ph-fill ph-check-circle text-neon-500 text-xl md:text-2xl"></i> Muita parceria e resenha garantida.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- LUGARES -->
+<section class="mb-24 md:mb-32 pt-10" id="lugares">
+<div class="text-center mb-12 md:mb-16 content-reveal">
+<h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm">Onde Aceleramos</h2>
+<h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-2 md:mb-4">
 
-            <!-- LUGARES -->
-            <section id="lugares" class="mb-24 md:mb-32 pt-10">
-                <div class="text-center mb-12 md:mb-16 content-reveal">
-                    <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm">Onde Aceleramos</h2>
-                    <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-2 md:mb-4">
                         AS MELHORES <span class="text-gray-500">TRILHAS</span>
-                    </h3>
-                    <p class="text-gray-400 text-sm md:text-lg px-4">Toque nas imagens para abrir a galeria de fotos reais de cada pico.</p>
-                </div>
+</h3>
+<p class="text-gray-400 text-sm md:text-lg px-4">Escolha uma região, veja as fotos reais e converse diretamente com Pedro sobre seu próximo rolê.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+<article class="trail-card content-reveal" data-destination="Ibitipoca">
+<div class="trail-card-cover">
+<img alt="Ibitipoca — fotos reais das trilhas de moto" class="trail-card-photo" data-photo-slot="foto04" decoding="async" loading="lazy" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.41.jpeg"/>
+<div class="trail-card-photo-wash"></div>
+<span class="trail-card-region">SERRAS E PEDRAS</span>
+<span class="trail-card-photo-count"><i class="ph-fill ph-images"></i> 6 fotos</span>
+<span aria-hidden="true" class="trail-card-giant-num">01</span>
+</div>
+<div class="trail-card-body">
+<div class="trail-card-top"><div><p class="trail-card-eyebrow">EXPLORE A REGIÃO</p>
+<h4>Ibitipoca</h4></div><span aria-hidden="true" class="trail-card-compass"><i class="ph ph-compass"></i></span></div>
+<p class="trail-card-tagline">Serra, pedra e tradição no enduro</p>
+<p class="trail-card-desc">Nos arredores de Ibitipoca, os pilotos encontram serras, subidas de pedra e caminhos que ajudaram a fazer a fama do Ibitipoca Off Road.</p>
+<div class="trail-card-tags"><span>Serras da região</span><span>Trechos de pedra</span><span>Cultura enduro</span></div>
+<div class="trail-card-actions">
+<button aria-label="Ver galeria de Ibitipoca" class="trail-view-photos" onclick="openModal('modal-ibitipoca')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
+<a aria-label="Conversar sobre trilhas em Ibitipoca" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+</div>
+</div>
+</article>
+<article class="trail-card content-reveal" data-destination="Bom Jardim">
+<div class="trail-card-cover">
+<img alt="Bom Jardim — fotos reais das trilhas de moto" class="trail-card-photo" data-photo-slot="foto05" decoding="async" loading="lazy" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.15.55.jpeg"/>
+<div class="trail-card-photo-wash"></div>
+<span class="trail-card-region">ÁGUA E BARRO</span>
+<span class="trail-card-photo-count"><i class="ph-fill ph-images"></i> 5 fotos</span>
+<span aria-hidden="true" class="trail-card-giant-num">02</span>
+</div>
+<div class="trail-card-body">
+<div class="trail-card-top"><div><p class="trail-card-eyebrow">EXPLORE A REGIÃO</p>
+<h4>Bom Jardim</h4></div><span aria-hidden="true" class="trail-card-compass"><i class="ph ph-compass"></i></span></div>
+<p class="trail-card-tagline">Estradas de terra e caminhos históricos</p>
+<p class="trail-card-desc">Nos registros da região aparecem estradas de chão, cachoeiras e passagens por antigos cortes ferroviários entre as montanhas.</p>
+<div class="trail-card-tags"><span>Estradas rurais</span><span>Cachoeiras</span><span>Cortes na serra</span></div>
+<div class="trail-card-actions">
+<button aria-label="Ver galeria de Bom Jardim" class="trail-view-photos" onclick="openModal('modal-bomjardim')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
+<a aria-label="Conversar sobre trilhas em Bom Jardim" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+</div>
+</div>
+</article>
+<article class="trail-card content-reveal" data-destination="Rio Preto">
+<div class="trail-card-cover">
+<img alt="Rio Preto — fotos reais das trilhas de moto" class="trail-card-photo" data-photo-slot="foto06" decoding="async" loading="lazy" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.20.57.jpeg"/>
+<div class="trail-card-photo-wash"></div>
+<span class="trail-card-region">SUBIDAS E TÉCNICA</span>
+<span class="trail-card-photo-count"><i class="ph-fill ph-images"></i> 6 fotos</span>
+<span aria-hidden="true" class="trail-card-giant-num">03</span>
+</div>
+<div class="trail-card-body">
+<div class="trail-card-top"><div><p class="trail-card-eyebrow">EXPLORE A REGIÃO</p>
+<h4>Rio Preto</h4></div><span aria-hidden="true" class="trail-card-compass"><i class="ph ph-compass"></i></span></div>
+<p class="trail-card-tagline">A subida da Serra do Funil</p>
+<p class="trail-card-desc">A Serra do Funil é conhecida pelas estradas de terra em subida e pela vista das montanhas da Serra Negra. Região para curtir cada curva.</p>
+<div class="trail-card-tags"><span>Serra do Funil</span><span>Estradas em subida</span><span>Serra Negra</span></div>
+<div class="trail-card-actions">
+<button aria-label="Ver galeria de Rio Preto" class="trail-view-photos" onclick="openModal('modal-riopreto')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
+<a aria-label="Conversar sobre trilhas em Rio Preto" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+</div>
+</div>
+</article>
+<article class="trail-card content-reveal" data-destination="Lima Duarte">
+<div class="trail-card-cover">
+<img alt="Lima Duarte — fotos reais das trilhas de moto" class="trail-card-photo" data-photo-slot="foto07" decoding="async" loading="lazy" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.55.02.jpeg"/>
+<div class="trail-card-photo-wash"></div>
+<span class="trail-card-region">NOSSA BASE</span>
+<span class="trail-card-photo-count"><i class="ph-fill ph-images"></i> 7 fotos</span>
+<span aria-hidden="true" class="trail-card-giant-num">04</span>
+</div>
+<div class="trail-card-body">
+<div class="trail-card-top"><div><p class="trail-card-eyebrow">EXPLORE A REGIÃO</p>
+<h4>Lima Duarte</h4></div><span aria-hidden="true" class="trail-card-compass"><i class="ph ph-compass"></i></span></div>
+<p class="trail-card-tagline">Onde a turma do enduro se encontra</p>
+<p class="trail-card-desc">Lima Duarte é base de muitos rolês. Registros de pilotos citam Olaria, Funil e Porteira Azul entre os caminhos explorados na região.</p>
+<div class="trail-card-tags"><span>Base em Lima Duarte</span><span>Caminhos rurais</span><span>Tradição off-road</span></div>
+<div class="trail-card-actions">
+<button aria-label="Ver galeria de Lima Duarte" class="trail-view-photos" onclick="openModal('modal-limaduarte')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
+<a aria-label="Conversar sobre trilhas em Lima Duarte" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- CONTATO CTA -->
+<section aria-labelledby="how-title" class="how-section content-reveal" id="como-funciona">
+<div class="how-intro"><p class="how-kicker">SEM COMPLICAÇÃO</p><h2 id="how-title">SEU PRÓXIMO <span>ROLÊ</span> COMEÇA AQUI.</h2><p>Você chama no WhatsApp e combina os detalhes diretamente com o guia. Sem tabela de preços, sem formulário longo.</p></div>
+<div class="how-steps">
+<div class="how-step"><span class="how-step-index">01</span><i class="ph ph-motorcycle"></i><h3>CONTE SOBRE A TURMA</h3><p>Fale da experiência de pilotagem, das motos e do tipo de aventura que vocês procuram.</p></div>
+<div class="how-step"><span class="how-step-index">02</span><i class="ph ph-map-trifold"></i><h3>COMBINE O ROTEIRO</h3><p>Conversem sobre a região, a data e as condições do trajeto antes de sair.</p></div>
+<div class="how-step"><span class="how-step-index">03</span><i class="ph ph-mountains"></i><h3>PARTIU TRILHA</h3><p>Curta a região com orientação local, respeitando as condições e os acessos permitidos.</p></div>
+</div>
+<a class="how-cta" data-wa-message="Olá, Pedro! Vi o site Gavioli Guia Trilhas e quero organizar um rolê de moto." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i> COMBINAR MEU ROLÊ <i class="ph ph-arrow-right"></i></a>
+</section><section class="relative py-16 md:py-24 px-6 md:px-8 rounded-3xl border border-white/10 overflow-hidden text-center content-reveal" id="contato">
+<div class="absolute inset-0 bg-gradient-to-b from-dark-800 to-black z-0"></div>
+<div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none z-0"></div>
+<div class="relative z-10">
+<h2 class="text-3xl md:text-7xl font-black text-white italic tracking-tighter mb-4 md:mb-6 uppercase">Vamos <span class="text-neon-500 text-glow">Acelerar?</span></h2>
+<p class="text-sm md:text-xl text-gray-400 mb-8 md:mb-10 font-light max-w-xl mx-auto">As melhores histórias começam com uma conversa. Conte sobre sua turma e combine seu próximo rolê diretamente com o Pedro.</p>
+<a class="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-base md:text-xl font-black text-black uppercase italic tracking-wider bg-neon-500 rounded-lg hover:bg-white transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-2 w-full md:w-auto" href="https://wa.me/5532000000000" rel="noopener" target="_blank">
+<i class="ph-fill ph-whatsapp-logo text-2xl md:text-3xl mr-3"></i> Falar no WhatsApp
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer" onclick="openModal('modal-ibitipoca')">
-                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
-                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
-                            <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" alt="Ibitipoca" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
-                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Ibitipoca</h4>
-                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">O Paraíso das Pedras</p>
-                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver Fotos &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer md:mt-8" onclick="openModal('modal-bomjardim')">
-                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
-                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
-                            <img src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
-                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Bom Jardim</h4>
-                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">Travessias e Lama</p>
-                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer sm:-mt-4 lg:mt-0" onclick="openModal('modal-riopreto')">
-                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
-                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
-                            <img src="img/caitlyn-vermeij-CwWRG-XezTc-unsplash.jpg" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
-                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Rio Preto</h4>
-                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">Subidas e Single Tracks</p>
-                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-card rounded-2xl overflow-hidden group content-reveal cursor-pointer sm:mt-4 lg:mt-8" onclick="openModal('modal-limaduarte')">
-                        <div class="h-48 md:h-56 relative overflow-hidden clip-img">
-                            <div class="absolute inset-0 bg-neon-500 opacity-20 group-hover:opacity-0 transition-opacity z-10"></div>
-                            <img src="img/angie-rivera-1ShK5W3H6Ro-unsplash-removebg-preview.png" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 grayscale group-hover:grayscale-0">
-                        </div>
-                        <div class="p-5 md:p-6">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-neon-500 rounded-full flex items-center justify-center -mt-10 md:-mt-12 relative z-20 border-4 border-dark-900 mb-3 md:mb-4 text-black shadow-neon">
-                                <i class="ph-fill ph-image text-lg md:text-xl"></i>
-                            </div>
-                            <h4 class="text-xl md:text-2xl font-black text-white mb-1 uppercase italic">Lima Duarte</h4>
-                            <p class="text-neon-500 text-xs md:text-sm font-bold mb-3">O Coração da Região</p>
-                            <span class="text-[10px] md:text-xs bg-white/10 px-3 py-1.5 rounded-full text-gray-300 group-hover:bg-white group-hover:text-black transition-colors font-bold uppercase block w-max mt-2">Ver  Fotos &rarr;</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SERVIÇOS E VALORES -->
-            <section id="servicos" class="mb-24 md:mb-32 pt-10">
-                <div class="text-center mb-12 md:mb-16 content-reveal">
-                    <h2 class="text-neon-500 font-black tracking-widest uppercase mb-2 md:mb-4 text-sm">Estrutura</h2>
-                    <h3 class="text-3xl md:text-5xl font-black text-white italic leading-tight mb-2 md:mb-4">
-                        PLANOS E <span class="text-gray-500">SERVIÇOS</span>
-                    </h3>
-                    <p class="text-gray-400 text-sm md:text-lg max-w-2xl mx-auto px-4">Tudo o que você e sua equipe precisam. Só se preocupe em pilotar.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 content-reveal">
-                    
-                    <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col h-full">
-                        <i class="ph-fill ph-user text-4xl md:text-5xl text-gray-500 mb-4 md:mb-6"></i>
-                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Guia Individual</h4>
-                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Para quem quer treinar fundamentos pesados ou passear no seu próprio ritmo pelas cavas da região.</p>
-                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Roteiro adaptado</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Dicas de pilotagem</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Trilha de 6 a 8 horas</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <p class="text-2xl md:text-3xl font-black text-white mb-4">R$ 150<span class="text-xs font-normal text-gray-500">/dia</span></p>
-                            <a href="#contato" class="block text-center w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-neon-500 transition-colors uppercase text-sm md:text-base">Agendar Solo</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-gradient-to-b from-dark-800 to-black p-6 md:p-8 rounded-2xl border-2 border-neon-500 flex flex-col h-full transform md:-translate-y-4 shadow-neon relative mt-4 md:mt-0">
-                        <div class="absolute -top-3 md:-top-4 left-1/2 transform -translate-x-1/2 bg-neon-500 text-black px-4 py-1 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap">Mais Escolhido</div>
-                        <i class="ph-fill ph-users-three text-4xl md:text-5xl text-neon-500 mb-4 md:mb-6"></i>
-                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Pacote Equipes</h4>
-                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Junte a galera para o melhor final de semana off-road. Foco no grupo e ajuda nas piores subidas.</p>
-                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Até 10 pilotos</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Ajuda no resgate nas cavas</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Fotos e vídeos da galera</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <p class="text-3xl md:text-4xl font-black text-neon-500 text-glow mb-4">R$ 400<span class="text-xs font-normal text-gray-500">/grupo</span></p>
-                            <a href="#contato" class="block text-center w-full bg-neon-500 text-black font-black py-4 rounded-lg hover:bg-white transition-colors uppercase italic shadow-neon text-sm md:text-base">Agendar Equipe</a>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col h-full mt-4 md:mt-0">
-                        <i class="ph-fill ph-wrench text-4xl md:text-5xl text-gray-500 mb-4 md:mb-6"></i>
-                        <h4 class="text-xl md:text-2xl font-black italic uppercase mb-2">Estrutura Extra</h4>
-                        <p class="text-gray-400 text-xs md:text-sm mb-6 flex-grow">Precisa de apoio completo? Nós organizamos toda a base em Lima Duarte para você chegar e acelerar.</p>
-                        <ul class="space-y-3 mb-8 text-xs md:text-sm font-bold text-gray-300">
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Pousada Parceira</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Churrasco Pós-trilha</li>
-                            <li class="flex items-center gap-2"><i class="ph-fill ph-check text-neon-500"></i> Lavador de Motos</li>
-                        </ul>
-                        <div class="mt-auto">
-                            <p class="text-lg md:text-xl font-black text-white mb-4 md:mt-2">Sob Consulta</p>
-                            <a href="#contato" class="block text-center w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-neon-500 transition-colors uppercase text-sm md:text-base">Fazer Orçamento</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CONTATO CTA -->
-            <section id="contato" class="relative py-16 md:py-24 px-6 md:px-8 rounded-3xl border border-white/10 overflow-hidden text-center content-reveal">
-                <div class="absolute inset-0 bg-gradient-to-b from-dark-800 to-black z-0"></div>
-                <div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none z-0"></div>
-                
-                <div class="relative z-10">
-                    <h2 class="text-3xl md:text-7xl font-black text-white italic tracking-tighter mb-4 md:mb-6 uppercase">Vamos <span class="text-neon-500 text-glow">Acelerar?</span></h2>
-                    <p class="text-sm md:text-xl text-gray-400 mb-8 md:mb-10 font-light max-w-xl mx-auto">Sua próxima aventura hard enduro te espera. Agende sua data agora. Vagas limitadas aos finais de semana.</p>
-                    
-                    <a href="https://wa.me/5532000000000" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-base md:text-xl font-black text-black uppercase italic tracking-wider bg-neon-500 rounded-lg hover:bg-white transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-2 w-full md:w-auto">
-                        <i class="ph-fill ph-whatsapp-logo text-2xl md:text-3xl mr-3"></i> Falar no WhatsApp
                     </a>
-                </div>
-            </section>
-        </div>
-        
-        <footer class="text-center py-8 mt-16 md:mt-20 border-t border-white/5 relative z-10">
-            <p class="text-gray-600 font-bold text-xs md:text-sm uppercase tracking-widest px-4 leading-relaxed">© 2026 TRILHAPRO. Lima Duarte, MG.<br class="md:hidden"> A verdadeira experiência off-road.</p>
-            <p>Desenvolvido por Diogo Netto-Astrobyte-tecnologias</p>
-            <a href="#">Entre em contado com desenvolverdor-Clique Aqui</a>
+</div>
+</section>
+</div>
+<footer class="text-center py-8 mt-16 md:mt-20 border-t border-white/5 relative z-10">
+<p class="text-gray-600 font-bold text-xs md:text-sm uppercase tracking-widest px-4 leading-relaxed">© 2026 GAVIOLI GUIA TRILHAS • Lima Duarte, MG • Experiências off-road.</p>
+<div class="footer-social">
+<a data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
+</div>
+<p>Desenvolvido por Diogo Netto — Astrobyte Tecnologias</p>
+</footer>
+</main>
+<!-- ========================================== -->
+<!-- MODAIS DE FOTOS -->
+<!-- ========================================== -->
+<!-- Modal IBITIPOCA -->
+<div aria-label="Fotos de Ibitipoca" aria-modal="true" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10" id="modal-ibitipoca" role="dialog">
+<button aria-label="Fechar galeria" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md" onclick="closeModal('modal-ibitipoca')" type="button">
+<i class="ph ph-x text-2xl"></i>
+</button>
+<div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+<h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Ibitipoca</h2>
+<p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Paisagens de serra, caminhos rurais e trechos pedregosos fazem parte dos relatos de pilotos na região de Ibitipoca. Consulte Pedro sobre roteiros disponíveis e acessos permitidos.</p>
+<div class="gallery-social-actions" aria-label="Contato sobre Ibitipoca">
+<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Ibitipoca</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<img alt="Ibitipoca - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto08" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.40.jpeg" tabindex="0"/>
+<img alt="Ibitipoca - galeria 2: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto09" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.42.jpeg" tabindex="0"/>
+<img alt="Ibitipoca - galeria 3: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto10" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.43 (1).jpeg" tabindex="0"/>
+<img alt="Ibitipoca - galeria 4: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto11" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.43.jpeg" tabindex="0"/>
+<img alt="Ibitipoca - galeria 5: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto12" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.44.jpeg" tabindex="0"/>
+<img alt="Ibitipoca - galeria 6: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto13" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.45.jpeg" tabindex="0"/>
+</div>
 
-        </footer>
-    </main>
+<section class="gavioli-region-extras" aria-label="Paisagens e mapa de Ibitipoca">
+<div class="gavioli-extras-head"><div><h3><i class="ph ph-mountains" aria-hidden="true"></i> Paisagens da região</h3>
+<p>Conheça um pouco das serras e dos cenários de Ibitipoca. Fotografias complementares de outros autores, separadas dos registros originais do Pedro.</p></div></div>
+<div class="gavioli-landscapes"><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Vista_das_montanhas_da_Janela_do_C%C3%A9u,_em_Ibitipoca_-_MG.jpg/960px-Vista_das_montanhas_da_Janela_do_C%C3%A9u,_em_Ibitipoca_-_MG.jpg" alt="Vista das montanhas de Ibitipoca — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Vista das montanhas de Ibitipoca" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Vista das montanhas de Ibitipoca</strong> Foto: Alexandre Magno Teles Zimerer · <a href="https://commons.wikimedia.org/wiki/File:Vista_das_montanhas_da_Janela_do_C%C3%A9u,_em_Ibitipoca_-_MG.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 3.0</a></figcaption>
+</figure><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Perspectivas_em_Ibitipoca.jpg/960px-Perspectivas_em_Ibitipoca.jpg" alt="Formações rochosas e mares de morros de Ibitipoca — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Formações rochosas e mares de morros de Ibitipoca" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Formações rochosas e mares de morros de Ibitipoca</strong> Foto: Pedro Augusto Marazzo de Sousa · <a href="https://commons.wikimedia.org/wiki/File:Perspectivas_em_Ibitipoca.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 4.0</a></figcaption>
+</figure></div>
+<p class="gavioli-extras-notice"><i class="ph ph-info" aria-hidden="true"></i> Estas imagens mostram paisagens e atrativos regionais, não necessariamente trajetos autorizados para motocicletas. A disponibilidade dos roteiros deve ser confirmada com o guia.</p>
+<div class="gavioli-region-map">
+<div class="gavioli-region-map-head"><p><strong style="color:#fff">Localize a região no mapa.</strong> Explore o entorno sem expor o percurso completo das trilhas.</p>
+<button type="button" class="gavioli-region-map-toggle" aria-expanded="false" aria-controls="gavioli-map-ibitipoca" data-region-map-toggle><i class="ph ph-map-trifold" aria-hidden="true"></i> Explorar no mapa <i class="ph ph-caret-down" aria-hidden="true"></i></button></div>
+<div class="gavioli-region-map-panel" id="gavioli-map-ibitipoca" hidden>
+<iframe title="Mapa da região de Ibitipoca" data-src="https://www.google.com/maps?q=Concei%C3%A7%C3%A3o%20do%20Ibitipoca%2C%20Lima%20Duarte%2C%20MG&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<div class="gavioli-region-map-footer"><span>Mapa regional — não representa a rota da trilha.</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Concei%C3%A7%C3%A3o%20do%20Ibitipoca%2C%20Lima%20Duarte%2C%20MG" target="_blank" rel="noopener noreferrer">Abrir Google Maps <i class="ph ph-arrow-up-right"></i></a></div>
+</div></div>
+</section>
+</div>
+</div>
+<!-- Modal BOM JARDIM -->
+<div aria-label="Fotos de Bomjardim" aria-modal="true" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10" id="modal-bomjardim" role="dialog">
+<button aria-label="Fechar galeria" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md" onclick="closeModal('modal-bomjardim')" type="button">
+<i class="ph ph-x text-2xl"></i>
+</button>
+<div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+<h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Bom Jardim</h2>
+<p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Trilheiros registram trajetos de moto nos arredores de Bom Jardim de Minas, passando por estradas rurais, cortes da antiga ferrovia e caminhos que levam à região das cachoeiras.</p>
+<div class="gallery-social-actions" aria-label="Contato sobre Bom Jardim">
+<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Bom Jardim</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<img alt="Bom Jardim - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto14" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.11.43 (1).jpeg" tabindex="0"/>
+<img alt="Bom Jardim - galeria 2: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto15" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.11.43.jpeg" tabindex="0"/>
+<img alt="Bom Jardim - galeria 3: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto16" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.11.50.jpeg" tabindex="0"/>
+<img alt="Bom Jardim - galeria 4: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto17" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.11.51.jpeg" tabindex="0"/>
+<img alt="Bom Jardim - galeria 5: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto18" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.15.55.jpeg" tabindex="0"/>
+</div>
 
-    <!-- ========================================== -->
-    <!-- MODAIS DE FOTOS -->
-    <!-- ========================================== -->
+<section class="gavioli-region-extras" aria-label="Paisagens e mapa de Bom Jardim de Minas">
+<div class="gavioli-extras-head"><div><h3><i class="ph ph-mountains" aria-hidden="true"></i> Paisagens da região</h3>
+<p>Conheça um pouco das serras e dos cenários de Bom Jardim de Minas. Fotografias complementares de outros autores, separadas dos registros originais do Pedro.</p></div></div>
+<div class="gavioli-landscapes"><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Serras_da_Mantiqueira_-_MG_-_panoramio.jpg/960px-Serras_da_Mantiqueira_-_MG_-_panoramio.jpg" alt="Serras da Mantiqueira, nos arredores de Bom Jardim de Minas — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Serras da Mantiqueira, nos arredores de Bom Jardim de Minas" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Serras da Mantiqueira, nos arredores de Bom Jardim de Minas</strong> Foto: Paulo JC Nogueira · <a href="https://commons.wikimedia.org/wiki/File:Serras_da_Mantiqueira_-_MG_-_panoramio.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 3.0</a></figcaption>
+</figure></div>
+<p class="gavioli-extras-notice"><i class="ph ph-info" aria-hidden="true"></i> Estas imagens mostram paisagens e atrativos regionais, não necessariamente trajetos autorizados para motocicletas. A disponibilidade dos roteiros deve ser confirmada com o guia.</p>
+<div class="gavioli-region-map">
+<div class="gavioli-region-map-head"><p><strong style="color:#fff">Localize a região no mapa.</strong> Explore o entorno sem expor o percurso completo das trilhas.</p>
+<button type="button" class="gavioli-region-map-toggle" aria-expanded="false" aria-controls="gavioli-map-bomjardim" data-region-map-toggle><i class="ph ph-map-trifold" aria-hidden="true"></i> Explorar no mapa <i class="ph ph-caret-down" aria-hidden="true"></i></button></div>
+<div class="gavioli-region-map-panel" id="gavioli-map-bomjardim" hidden>
+<iframe title="Mapa da região de Bom Jardim de Minas" data-src="https://www.google.com/maps?q=Bom%20Jardim%20de%20Minas%2C%20MG&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<div class="gavioli-region-map-footer"><span>Mapa regional — não representa a rota da trilha.</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Bom%20Jardim%20de%20Minas%2C%20MG" target="_blank" rel="noopener noreferrer">Abrir Google Maps <i class="ph ph-arrow-up-right"></i></a></div>
+</div></div>
+</section>
+</div>
+</div>
+<!-- Modal RIO PRETO -->
+<div aria-label="Fotos de Riopreto" aria-modal="true" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10" id="modal-riopreto" role="dialog">
+<button aria-label="Fechar galeria" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md" onclick="closeModal('modal-riopreto')" type="button">
+<i class="ph ph-x text-2xl"></i>
+</button>
+<div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+<h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Rio Preto</h2>
+<p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">A região de Rio Preto tem a Serra do Funil e seus caminhos de terra em subida, com paisagens marcantes das montanhas da Serra Negra. Confirme previamente as condições e o acesso ao trajeto.</p>
+<div class="gallery-social-actions" aria-label="Contato sobre Rio Preto">
+<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Rio Preto</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<img alt="Rio Preto - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto19" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.20.56 (1).jpeg" tabindex="0"/>
+<img alt="Rio Preto - galeria 2: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto20" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.20.56.jpeg" tabindex="0"/>
+<img alt="Rio Preto - galeria 3: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto21" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.21.08.jpeg" tabindex="0"/>
+<img alt="Rio Preto - galeria 4: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto22" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.20.57.jpeg" tabindex="0"/>
+<img alt="Rio Preto - galeria 5: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto23" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.21.07.jpeg" tabindex="0"/>
+<img alt="Rio Preto - galeria 6: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto24" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.21.08 (1).jpeg" tabindex="0"/>
+</div>
 
-    <!-- Modal IBITIPOCA -->
-    <div id="modal-ibitipoca" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
-        <button onclick="closeModal('modal-ibitipoca')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
-            <i class="ph ph-x text-2xl"></i>
-        </button>
-        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
-            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Ibitipoca</h2>
-            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">O paraíso das pedras. Trilhas extremas com visual absurdo. Aqui testamos suspensão da moto e a resistência do piloto.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
-                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
-                <img src="img/pexels-stephen-leonardi-587681991-28610175.jpg" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform">
-            </div>
-        </div>
-    </div>
+<section class="gavioli-region-extras" aria-label="Paisagens e mapa de Rio Preto">
+<div class="gavioli-extras-head"><div><h3><i class="ph ph-mountains" aria-hidden="true"></i> Paisagens da região</h3>
+<p>Conheça um pouco das serras e dos cenários de Rio Preto. Fotografias complementares de outros autores, separadas dos registros originais do Pedro.</p></div></div>
+<div class="gavioli-landscapes"><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Paisagem_de_Rio_Preto_-_Minas_Gerais_-_Brasil_-_panoramio.jpg/960px-Paisagem_de_Rio_Preto_-_Minas_Gerais_-_Brasil_-_panoramio.jpg" alt="Paisagem de montanhas no município de Rio Preto — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Paisagem de montanhas no município de Rio Preto" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Paisagem de montanhas no município de Rio Preto</strong> Foto: Alexandre Amorim · <a href="https://commons.wikimedia.org/wiki/File:Paisagem_de_Rio_Preto_-_Minas_Gerais_-_Brasil_-_panoramio.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 3.0</a></figcaption>
+</figure><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Gruta_do_Funil.jpg/960px-Gruta_do_Funil.jpg" alt="Gruta do Funil, Rio Preto — atrativo natural da região — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Gruta do Funil, Rio Preto — atrativo natural da região" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Gruta do Funil, Rio Preto — atrativo natural da região</strong> Foto: Edmilson de Lima Magalhães · <a href="https://commons.wikimedia.org/wiki/File:Gruta_do_Funil.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 4.0</a></figcaption>
+</figure></div>
+<p class="gavioli-extras-notice"><i class="ph ph-info" aria-hidden="true"></i> Estas imagens mostram paisagens e atrativos regionais, não necessariamente trajetos autorizados para motocicletas. A disponibilidade dos roteiros deve ser confirmada com o guia.</p>
+<div class="gavioli-region-map">
+<div class="gavioli-region-map-head"><p><strong style="color:#fff">Localize a região no mapa.</strong> Explore o entorno sem expor o percurso completo das trilhas.</p>
+<button type="button" class="gavioli-region-map-toggle" aria-expanded="false" aria-controls="gavioli-map-riopreto" data-region-map-toggle><i class="ph ph-map-trifold" aria-hidden="true"></i> Explorar no mapa <i class="ph ph-caret-down" aria-hidden="true"></i></button></div>
+<div class="gavioli-region-map-panel" id="gavioli-map-riopreto" hidden>
+<iframe title="Mapa da região de Rio Preto" data-src="https://www.google.com/maps?q=Rio%20Preto%2C%20Minas%20Gerais&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<div class="gavioli-region-map-footer"><span>Mapa regional — não representa a rota da trilha.</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Rio%20Preto%2C%20Minas%20Gerais" target="_blank" rel="noopener noreferrer">Abrir Google Maps <i class="ph ph-arrow-up-right"></i></a></div>
+</div></div>
+</section>
+</div>
+</div>
+<!-- Modal LIMA DUARTE -->
+<div aria-label="Fotos de Limaduarte" aria-modal="true" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10" id="modal-limaduarte" role="dialog">
+<button aria-label="Fechar galeria" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md" onclick="closeModal('modal-limaduarte')" type="button">
+<i class="ph ph-x text-2xl"></i>
+</button>
+<div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
+<h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Lima Duarte</h2>
+<p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Lima Duarte concentra saídas e percursos conhecidos pelos trilheiros. Registros da comunidade mencionam Olaria, Funil e Porteira Azul entre outros caminhos; a disponibilidade varia conforme as condições locais.</p>
+<div class="gallery-social-actions" aria-label="Contato sobre Lima Duarte">
+<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Lima Duarte</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<img alt="Lima Duarte - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto25" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.16 (1).jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 2: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto26" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.16.jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 3: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto27" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.17.jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 4: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto28" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.18 (1).jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 5: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto29" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.55.02.jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 6: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto30" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.18.jpeg" tabindex="0"/>
+<img alt="Lima Duarte - galeria 7: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto31" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.17 (1).jpeg" tabindex="0"/>
+</div>
 
-    <!-- Modal BOM JARDIM -->
-    <div id="modal-bomjardim" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
-        <button onclick="closeModal('modal-bomjardim')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
-            <i class="ph ph-x text-2xl"></i>
-        </button>
-        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
-            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Bom Jardim</h2>
-            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Água, lama grossa e travessias épicas. Prepare as botas porque ninguém sai com a moto limpa daqui.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
-                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 2</div>
-            </div>
-        </div>
-    </div>
+<section class="gavioli-region-extras" aria-label="Paisagens e mapa de Lima Duarte">
+<div class="gavioli-extras-head"><div><h3><i class="ph ph-mountains" aria-hidden="true"></i> Paisagens da região</h3>
+<p>Conheça um pouco das serras e dos cenários de Lima Duarte. Fotografias complementares de outros autores, separadas dos registros originais do Pedro.</p></div></div>
+<div class="gavioli-landscapes"><figure class="gavioli-landscape-figure">
+<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Serra_da_Mantiqueira_-_MG_-_panoramio.jpg/960px-Serra_da_Mantiqueira_-_MG_-_panoramio.jpg" alt="Serra da Mantiqueira fotografada na região de Lima Duarte — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Serra da Mantiqueira fotografada na região de Lima Duarte" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Serra da Mantiqueira fotografada na região de Lima Duarte</strong> Foto: Paulo JC Nogueira · <a href="https://commons.wikimedia.org/wiki/File:Serra_da_Mantiqueira_-_MG_-_panoramio.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY-SA 3.0</a></figcaption>
+</figure><figure class="gavioli-landscape-figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Relevo_ondulado_em_Lima_Duarte_MG.jpg" alt="Mares de morros de Lima Duarte — foto de paisagem complementar, não mostra roteiro de moto" class="gallery-thumbnail gavioli-landscape-image" role="button" tabindex="0" aria-label="Ampliar paisagem: Mares de morros de Lima Duarte" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('is-unavailable')" />
+<div class="gavioli-missing">Foto externa indisponível no momento. Use o link da fonte para visualizar.</div>
+<figcaption><strong>Mares de morros de Lima Duarte</strong> Foto: Bolapiercing · <a href="https://commons.wikimedia.org/wiki/File:Relevo_ondulado_em_Lima_Duarte_MG.jpg" target="_blank" rel="noopener noreferrer">Fonte e licença CC BY 2.0</a></figcaption>
+</figure></div>
+<p class="gavioli-extras-notice"><i class="ph ph-info" aria-hidden="true"></i> Estas imagens mostram paisagens e atrativos regionais, não necessariamente trajetos autorizados para motocicletas. A disponibilidade dos roteiros deve ser confirmada com o guia.</p>
+<div class="gavioli-region-map">
+<div class="gavioli-region-map-head"><p><strong style="color:#fff">Localize a região no mapa.</strong> Explore o entorno sem expor o percurso completo das trilhas.</p>
+<button type="button" class="gavioli-region-map-toggle" aria-expanded="false" aria-controls="gavioli-map-limaduarte" data-region-map-toggle><i class="ph ph-map-trifold" aria-hidden="true"></i> Explorar no mapa <i class="ph ph-caret-down" aria-hidden="true"></i></button></div>
+<div class="gavioli-region-map-panel" id="gavioli-map-limaduarte" hidden>
+<iframe title="Mapa da região de Lima Duarte" data-src="https://www.google.com/maps?q=Lima%20Duarte%2C%20Minas%20Gerais&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+<div class="gavioli-region-map-footer"><span>Mapa regional — não representa a rota da trilha.</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Lima%20Duarte%2C%20Minas%20Gerais" target="_blank" rel="noopener noreferrer">Abrir Google Maps <i class="ph ph-arrow-up-right"></i></a></div>
+</div></div>
+</section>
+</div>
+</div>
+<!-- SCRIPTS MÁGICOS: visual original, lógica estabilizada -->
+<div aria-label="Fotografia ampliada" aria-modal="true" class="photo-lightbox" hidden="" id="photo-lightbox" role="dialog">
+<button aria-label="Fechar foto" class="lb-close" id="lightbox-close"><i class="ph ph-x"></i></button>
+<button aria-label="Foto anterior" class="lb-nav lb-prev" id="lightbox-prev"><i class="ph ph-caret-left"></i></button>
+<figure class="lb-figure"><img alt="Foto ampliada da trilha" id="lightbox-image"/><figcaption id="lightbox-caption"></figcaption>
+</figure>
+<button aria-label="Próxima foto" class="lb-nav lb-next" id="lightbox-next"><i class="ph ph-caret-right"></i></button>
+</div><script>
+(() => {
+  'use strict';
+  const byId = id => document.getElementById(id);
+  const hero=byId('hero'), stage=byId('bike-stage'), bike=byId('bike-wrapper');
+  const headline=byId('hero-text'), dust=byId('dust-particles'), lines=byId('speed-lines');
+  const flash=byId('impact-flash'), bar=byId('ride-progress-bar'), hint=byId('ride-progress');
+  const nav=byId('navbar'), loader=byId('loader'), loaderProgress=byId('loader-progress');
+  const mobileButton=byId('mobile-btn'), mobileMenu=byId('mobile-menu');
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DURATION=10000;
+  let frames=[], lastWidth=0, framePending=false, modalOpen=null, lightboxOpen=false, lightboxImages=[],lightboxIndex=0,lastFocus=null;
+  let previousBodyOverflow='';
+  const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+  function lock(){if (!document.body.classList.contains('gavioli-locked')) previousBodyOverflow=document.body.style.overflow; document.body.classList.add('gavioli-locked');document.body.style.overflow='hidden'}
+  function unlock(){if (!modalOpen&&!lightboxOpen&&!mobileMenu.classList.contains('flex')) {document.body.classList.remove('gavioli-locked');document.body.style.overflow=previousBodyOverflow;}}
+  function showMobileMenu(open){
+    mobileButton.setAttribute('aria-expanded',String(open));
+    mobileButton.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    mobileButton.innerHTML=open?'<i class="ph-fill ph-x"></i>':'<i class="ph-fill ph-list"></i>';
+    mobileMenu.classList.toggle('hidden',!open); mobileMenu.classList.toggle('flex',open);
+    mobileMenu.classList.toggle('opacity-0',!open);
+    if(open) lock(); else unlock();
+  }
+  mobileButton.addEventListener('click',()=>showMobileMenu(!mobileMenu.classList.contains('flex')));
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>showMobileMenu(false)));
+  function openModal(id){
+    const modal=byId(id); if(!modal)return;
+    if(mobileMenu.classList.contains('flex'))showMobileMenu(false);
+    if(modalOpen && modalOpen!==modal)closeModal(modalOpen.id);
+    lastFocus=document.activeElement;modalOpen=modal;lock();
+    modal.classList.remove('hidden','opacity-0');modal.classList.add('flex');
+    const close=modal.querySelector('button');if(close)close.focus({preventScroll:true});
+  }
+  function closeModal(id){
+    const modal=byId(id);if(!modal)return;
+    if(lightboxOpen)closeLightbox();
+    modal.classList.add('hidden','opacity-0');modal.classList.remove('flex');
+    if(modalOpen===modal)modalOpen=null;
+    unlock();if(lastFocus?.isConnected)lastFocus.focus({preventScroll:true});
+  }
+  window.openModal=openModal;window.closeModal=closeModal;
+  document.querySelectorAll('[role="dialog"]').forEach(m=>m.addEventListener('click',event=>{if(event.target===m)closeModal(m.id)}));
 
-    <!-- Modal RIO PRETO -->
-    <div id="modal-riopreto" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
-        <button onclick="closeModal('modal-riopreto')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
-            <i class="ph ph-x text-2xl"></i>
-        </button>
-        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
-            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Rio Preto</h2>
-            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Subidas sem fim e single tracks técnicos. O motor ferve e o braço cansa.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
-                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 2</div>
-            </div>
-        </div>
-    </div>
+  /* Reversible, fully scroll-synchronized cinematic sequence.
+     Progress is determined by the STAGE, not by elapsed seconds or wheel speed.
+     Therefore the camera close-up always finishes before the sticky hero releases. */
+  function animation(target,keyframes){
+    const a=target.animate(keyframes,{duration:DURATION,fill:'both',easing:'linear'});
+    a.pause(); a.currentTime=0; frames.push(a);
+  }
+  function buildMotion(){
+    frames.forEach(a=>a.cancel());frames=[];
+    if(reduceMotion||!bike||typeof bike.animate!=='function'){
+      bike.style.left='50%';bike.style.transform='translateX(-50%) scale(.65)';
+      bike.style.opacity='.9';headline.style.opacity='1';hint.style.display='none';return;
+    }
+    const mobile=innerWidth<640;
+    const y=mobile?'-5vh':'-11vh';
+    const endScale=mobile?19:15;
+    const motorcycle=[
+      {offset:0,transform:'translate3d(-230%, 10vh, 0) rotate(-8deg) scale(.68)',opacity:0},
+      {offset:.08,transform:'translate3d(-220%, 9vh, 0) rotate(-8deg) scale(.7)',opacity:0},
+      {offset:.18,transform:'translate3d(-150%, 5vh, 0) rotate(-7deg) scale(.82)',opacity:1},
+      {offset:.34,transform:'translate3d(-88%, 1vh, 0) rotate(-10deg) scale(.95)',opacity:1},
+      {offset:.50,transform:`translate3d(-50%, ${y}, 0) rotate(-24deg) scale(1.08)`,opacity:1},
+      {offset:.66,transform:`translate3d(-50%, ${y}, 0) rotate(-24deg) scale(1.16)`,opacity:1},
+      {offset:.82,transform:`translate3d(-50%, -14vh, 0) rotate(-18deg) scale(${(endScale*.42).toFixed(2)})`,opacity:1},
+      {offset:.94,transform:`translate3d(-50%, -18vh, 0) rotate(-10deg) scale(${endScale})`,opacity:1},
+      {offset:.995,transform:`translate3d(-50%, -19vh, 0) rotate(-8deg) scale(${endScale*1.26})`,opacity:0},
+      {offset:1,transform:`translate3d(-50%, -19vh, 0) rotate(-8deg) scale(${endScale*1.26})`,opacity:0}
+    ];
+    animation(bike,motorcycle);
+    animation(headline,[
+      {offset:0,transform:'translateY(0) scale(1)',opacity:1},
+      {offset:.23,transform:'translateY(0) scale(1)',opacity:1},
+      {offset:.60,transform:'translateY(-80px) scale(.83)',opacity:0},
+      {offset:1,transform:'translateY(-80px) scale(.83)',opacity:0}
+    ]);
+    animation(dust,[
+      {offset:0,transform:'scale(.7)',opacity:0},
+      {offset:.2,transform:'scale(2)',opacity:.25},
+      {offset:.48,transform:'scale(3)',opacity:.65},
+      {offset:.75,transform:'scale(6)',opacity:.85},
+      {offset:.98,transform:'scale(7)',opacity:0},
+      {offset:1,transform:'scale(7)',opacity:0}
+    ]);
+    animation(lines,[{offset:0,opacity:0},{offset:.59,opacity:0},{offset:.76,opacity:.95},{offset:.90,opacity:1},{offset:1,opacity:0}]);
+    animation(flash,[{offset:0,opacity:0},{offset:.76,opacity:0},{offset:.92,opacity:.38},{offset:.99,opacity:.8},{offset:1,opacity:0}]);
+  }
+  function progressNow(){
+    const rect=stage.getBoundingClientRect();
+    const travel=Math.max(1,stage.offsetHeight-hero.offsetHeight);
+    return clamp(-rect.top/travel);
+  }
+  function sync(){
+    framePending=false;
+    const t=progressNow();
+    if(frames.length) {
+      // Exact frame at both ends. No asynchronous playbackRate, stuck pause, or random resets.
+      for(const a of frames){a.pause();a.currentTime=Math.round(t*DURATION);}
+    }
+    bar.style.width=(100*t).toFixed(2)+'%';
+    hint.style.opacity=t>.93?'0':'1';
+    const visible=window.scrollY>stage.offsetTop+Math.max(100,hero.offsetHeight*.72);
+    nav.classList.toggle('-translate-y-full',!visible);
+    nav.classList.toggle('opacity-0',!visible);
+    nav.classList.toggle('pointer-events-none',!visible);
+    nav.classList.toggle('translate-y-0',visible);
+    nav.classList.toggle('opacity-100',visible);
+    nav.classList.toggle('glass-nav',visible);
+  }
+  function schedule(){if(framePending)return;framePending=true;requestAnimationFrame(sync)}
+  addEventListener('scroll',schedule,{passive:true});
+  addEventListener('resize',()=>{
+    // CSS adjusts the stage height; animation is rebuilt only when breakpoint changes.
+    if((innerWidth<640)!==(lastWidth<640)) buildMotion();
+    lastWidth=innerWidth;schedule();
+    if(innerWidth>=768&&mobileMenu.classList.contains('flex'))showMobileMenu(false);
+  },{passive:true});
+  addEventListener('pageshow',schedule);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule()});
 
-    <!-- Modal LIMA DUARTE -->
-    <div id="modal-limaduarte" class="fixed inset-0 bg-black/95 z-[100] hidden flex-col items-center opacity-0 transition-opacity duration-300 overflow-y-auto overflow-x-hidden no-scrollbar pb-10">
-        <button onclick="closeModal('modal-limaduarte')" class="sticky top-4 right-4 md:top-8 md:right-8 w-12 h-12 self-end mr-4 mt-4 bg-white/10 hover:bg-neon-500 text-white flex items-center justify-center rounded-full transition-colors z-[110] backdrop-blur-md">
-            <i class="ph ph-x text-2xl"></i>
-        </button>
-        <div class="max-w-6xl w-full px-4 md:px-10 mt-4 md:mt-8">
-            <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Lima Duarte</h2>
-            <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">A nossa base de operações. Região perfeita para aquecer os motores.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="w-full h-56 md:h-64 bg-dark-800 rounded-xl border border-white/5 flex items-center justify-center text-gray-500">Foto 1</div>
-            </div>
-        </div>
-    </div>
+  // Lighter pointer parallax independent of bike transforms.
+  if(!reduceMotion&&matchMedia('(pointer:fine)').matches){
+    let busy=false,x=0,y=0;
+    hero.addEventListener('pointermove',e=>{
+      x=(e.clientX/innerWidth-.5)*18;y=(e.clientY/innerHeight-.5)*12;
+      if(busy)return;busy=true;
+      requestAnimationFrame(()=>{
+        hero.querySelectorAll('.parallax-layer:not(#hero-text)').forEach(layer=>{
+          const depth=Number(layer.dataset.depth)||0;
+          layer.style.translate=`${(x*depth).toFixed(1)}px ${(y*depth).toFixed(1)}px`;
+        }); busy=false;
+      });
+    },{passive:true});
+  }
+  // Progressive content: NEVER invisible if a CDN fails.
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');io.unobserve(entry.target)}});
+    },{threshold:.04,rootMargin:'0px 0px -15px 0px'});
+    document.querySelectorAll('.content-reveal').forEach(el=>io.observe(el));
+  }else document.querySelectorAll('.content-reveal').forEach(el=>el.classList.add('in-view'));
 
-    <!-- SCRIPTS MÁGICOS -->
-    <script>
-        const btnMobile = document.getElementById('mobile-btn');
-        const menuOverlay = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
+  // Photo lightbox: click/tap, keyboard arrows and swipe; photos are the same original files.
+  const lb=byId('photo-lightbox'),lbImg=byId('lightbox-image'),lbCaption=byId('lightbox-caption');
+  function presentImage(){
+    const image=lightboxImages[lightboxIndex];if(!image)return;
+    lbImg.src=image.currentSrc||image.src;
+    lbImg.alt=image.alt||'Foto da trilha';
+    const heading=modalOpen?.querySelector('h2')?.textContent?.trim()||'Galeria';
+    lbCaption.textContent=`${heading} • Foto ${lightboxIndex+1} de ${lightboxImages.length}`;
+    const lbWhatsApp=byId('lightbox-wa');
+    if(lbWhatsApp){
+      lbWhatsApp.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Olá, Pedro! Vi uma foto da galeria de ${heading} no site e quero saber mais sobre as trilhas da região.`)}`;
+    }
+  }
+  function openLightbox(img){
+    const currentModal=img.closest('[id^="modal-"]');if(!currentModal)return;
+    lightboxImages=[...currentModal.querySelectorAll('.gallery-thumbnail')];
+    lightboxIndex=Math.max(0,lightboxImages.indexOf(img));lightboxOpen=true;lock();
+    presentImage();lb.hidden=false;byId('lightbox-close').focus({preventScroll:true});
+  }
+  function changeImage(amount){if(!lightboxImages.length)return;lightboxIndex=(lightboxIndex+amount+lightboxImages.length)%lightboxImages.length;presentImage()}
+  function closeLightbox(){lightboxOpen=false;lb.hidden=true;lbImg.removeAttribute('src');unlock();if(modalOpen)modalOpen.querySelector('.gallery-thumbnail')?.focus({preventScroll:true})}
+  document.querySelectorAll('.gallery-thumbnail').forEach(img=>{
+    img.addEventListener('click',()=>openLightbox(img));
+    img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox(img)}});
+  });
+  byId('lightbox-prev').addEventListener('click',()=>changeImage(-1));
+  byId('lightbox-next').addEventListener('click',()=>changeImage(1));
+  byId('lightbox-close').addEventListener('click',closeLightbox);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox()});
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'){
+      if(lightboxOpen)closeLightbox();else if(modalOpen)closeModal(modalOpen.id);else if(mobileMenu.classList.contains('flex'))showMobileMenu(false);
+    }
+    if(lightboxOpen&&e.key==='ArrowLeft')changeImage(-1);
+    if(lightboxOpen&&e.key==='ArrowRight')changeImage(1);
+  });
+  let touchStart=null;
+  lb.addEventListener('touchstart',e=>{touchStart=e.changedTouches[0]?.clientX??null},{passive:true});
+  lb.addEventListener('touchend',e=>{if(touchStart===null)return;const delta=(e.changedTouches[0]?.clientX??touchStart)-touchStart;if(Math.abs(delta)>48)changeImage(delta<0?1:-1);touchStart=null},{passive:true});
 
-        btnMobile.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if(isMenuOpen) {
-                menuOverlay.classList.remove('hidden');
-                menuOverlay.classList.add('flex');
-                setTimeout(() => menuOverlay.classList.remove('opacity-0'), 10);
-                btnMobile.innerHTML = '<i class="ph-fill ph-x"></i>';
-                document.body.style.overflow = 'hidden';
-            } else {
-                menuOverlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    menuOverlay.classList.add('hidden');
-                    menuOverlay.classList.remove('flex');
-                }, 300);
-                btnMobile.innerHTML = '<i class="ph-fill ph-list"></i>';
-                document.body.style.overflow = '';
-            }
-        });
+  // Mapas regionais sob demanda: a API do Google só carrega quando a pessoa escolher.
+  document.querySelectorAll('[data-region-map-toggle]').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const panel=document.getElementById(button.getAttribute('aria-controls'));
+      if(!panel)return;
+      const opening=panel.hidden;
+      panel.hidden=!opening;
+      button.setAttribute('aria-expanded',String(opening));
+      button.innerHTML=opening
+        ? '<i class="ph ph-map-trifold" aria-hidden="true"></i> Ocultar mapa <i class="ph ph-caret-up" aria-hidden="true"></i>'
+        : '<i class="ph ph-map-trifold" aria-hidden="true"></i> Explorar no mapa <i class="ph ph-caret-down" aria-hidden="true"></i>';
+      const frame=panel.querySelector('iframe[data-src]');
+      if(opening&&frame&&!frame.src)frame.src=frame.dataset.src;
+    });
+  });
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                menuOverlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    menuOverlay.classList.add('hidden');
-                    menuOverlay.classList.remove('flex');
-                }, 300);
-                btnMobile.innerHTML = '<i class="ph-fill ph-list"></i>';
-                document.body.style.overflow = '';
-            });
-        });
-
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                setTimeout(() => modal.classList.remove('opacity-0'), 10);
-                document.body.style.overflow = 'hidden'; 
-            }
-        }
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if(modal) {
-                modal.classList.add('opacity-0');
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }, 300);
-                document.body.style.overflow = '';
-            }
-        }
-
-        gsap.registerPlugin(ScrollTrigger);
-
-        // O HEADER SÓ APARECE DEPOIS DA TELA DO HERO
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            const heroHeight = document.getElementById('hero').offsetHeight;
-            
-            if(window.scrollY > heroHeight * 0.8) { 
-                nav.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                nav.classList.add('translate-y-0', 'opacity-100', 'glass-nav');
-            } else {
-                nav.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-                nav.classList.remove('translate-y-0', 'opacity-100', 'glass-nav');
-            }
-        });
-
-        window.onload = () => {
-            gsap.to("#loader-progress", { width: "100%", duration: 1, ease: "power2.inOut" });
-            gsap.to("#loader", { 
-                opacity: 0, duration: 0.8, delay: 1.2, 
-                onComplete: () => {
-                    document.getElementById("loader").style.display = "none";
-                    initAnimations();
-                } 
-            });
-        };
-
-        function initAnimations() {
-            if (window.innerWidth > 768) {
-                const hero = document.getElementById('hero');
-                const layers = document.querySelectorAll('.parallax-layer');
-                hero.addEventListener('mousemove', (e) => {
-                    const x = (e.clientX - window.innerWidth / 2) * 0.5;
-                    const y = (e.clientY - window.innerHeight / 2) * 0.5;
-                    layers.forEach(layer => {
-                        const depth = layer.dataset.depth;
-                        gsap.to(layer, { x: x * depth, y: y * depth, duration: 1.5, ease: "power2.out" });
-                    });
-                });
-            }
-
-            // MÁGICA DA MOTO BLINDADA - CENTRO EXATO
-            const isMobile = window.innerWidth <= 768;
-            
-            // Posiciona a moto fora da tela pra evitar flash
-            gsap.set("#bike-wrapper", {
-                left: "0%", 
-                xPercent: -100, // Empurra 100% da própria largura pra esquerda
-                opacity: 1 // Agora pode aparecer, já tá escondida
-            });
-            
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "top top",
-                    end: "+=120%", // Reduzido pra não ter buraco
-                    scrub: 1,
-                    pin: true, 
-                    anticipatePin: 1
-                }
-            });
-
-            // PASSO 1: Moto VEM PARA O CENTRO DA TELA (50vw)
-            tl.to("#bike-wrapper", {
-                x: "50vw", // Manda pro centro da tela
-                xPercent: -50, // Corrige o eixo central da moto no centro da tela
-                y: isMobile ? -50 : -100, 
-                rotation: -25, // Empina
-                duration: 4,
-                ease: "power2.out"
-            }, 0)
-            .to("#dust-particles", { opacity: 0.8, scale: isMobile ? 3 : 5, duration: 2 }, 1)
-            .to("#hero-text", { scale: 0.8, y: -100, opacity: 0, duration: 3 }, 1)
-            .to("#speed-lines", { opacity: 1, duration: 1 }, 3)
-            
-            // PASSO 2: PULA NA CARA, FICA NO CENTRO E SOME 
-            .to("#bike-wrapper", {
-                scale: isMobile ? 18 : 12, // Tamanho brutal pra tampar o fundo
-                y: isMobile ? -200 : -300, 
-                opacity: 0, // Só apaga no pico do pulo
-                duration: 3,
-                ease: "power3.in"
-            }, 4)
-            .to("#speed-lines", { opacity: 0, duration: 1 }, 6);
-
-            const revealElements = document.querySelectorAll('.content-reveal');
-            revealElements.forEach((el) => {
-                gsap.fromTo(el, 
-                    { opacity: 0, y: 30 },
-                    { 
-                        opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-                        scrollTrigger: {
-                            trigger: el,
-                            start: "top 88%", 
-                            toggleActions: "play none none reverse"
+  // Perfil público do Pedro: somente o @, sem / e sem URL.
+  // IMPORTANTE: substitua SEU_USUARIO_AQUI antes de publicar.
+  const INSTAGRAM_USERNAME='SEU_USUARIO_AQUI';
+  const instagramHref=INSTAGRAM_USERNAME==='SEU_USUARIO_AQUI'
+    ? 'https://www.instagram.com/'
+    : `https://www.instagram.com/${encodeURIComponent(INSTAGRAM_USERNAME.replace(/^@/,''))}/`;
+  document.querySelectorAll('a[data-instagram-link]').forEach(a=>{
+    a.href=instagramHref;a.rel='noopener noreferrer';a.target='_blank';
+  });
+// One WhatsApp number, all buttons use the chosen destination's message.
+  const WHATSAPP_NUMBER='5532000000000'; // TROCAR: 55 + DDD + telefone do Pedro.
+  document.querySelectorAll('a[href*="wa.me/"], a[data-wa-message]').forEach(a=>{
+    const message=a.dataset.waMessage||'Olá, Pedro! Vi o Gavioli Guia Trilhas e gostaria de conversar sobre uma trilha.';
+    a.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    a.rel='noopener noreferrer';a.target='_blank';
+  });
+  // Avoid making initial content wait for every gallery picture or external resource.
+  function hideLoader(){if(!loader||loader.dataset.done)return;loader.dataset.done='yes';
+    if(loaderProgress){loaderProgress.style.transition='width .35s ease';loaderProgress.style.width='100%'}
+    loader.style.transition='opacity .34s ease';loader.style.opacity='0';loader.style.pointerEvents='none';
+    setTimeout(()=>{loader.style.display='none'},380);
+  }
+  lastWidth=innerWidth;buildMotion();sync();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hideLoader,{once:true});else hideLoader();
+  setTimeout(hideLoader,1300);
+  // Expose only read-only diagnostic values (no admin privileges).
+  window.gavioliDebug=()=>({progress:Number(progressNow().toFixed(3)),animationTime:frames[0]?.currentTime??null,frames:frames.length,stageHeight:stage.offsetHeight,scrollY:window.scrollY});
+})();
+</script>
+<!-- Firebase é opcional e não muda o visual: ativo somente após configurar. -->
+<script type="module">
+        // Preencha esta constante somente quando o Firebase estiver configurado.
+        // NUNCA coloque senhas, tokens de administração ou service account aqui.
+        const firebaseConfig = null;
+        if (firebaseConfig) {
+            try {
+                const [{ initializeApp }, { getFirestore, doc, onSnapshot }] = await Promise.all([
+                    import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),
+                    import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js')
+                ]);
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+                onSnapshot(doc(db, 'site', 'fotos'), snapshot => {
+                    const slots = snapshot.data()?.slots || {};
+                    document.querySelectorAll('img[data-photo-slot]').forEach(img => {
+                        const newURL = slots[img.dataset.photoSlot];
+                        if (typeof newURL === 'string' && newURL.startsWith('https://')) {
+                            if (img.src !== newURL) img.src = newURL;
                         }
-                    }
-                );
-            });
+                    });
+                }, error => console.warn('Fotos originais mantidas; Firestore indisponível:', error.code));
+            } catch (error) {
+                console.warn('Fotos originais mantidas; Firebase ainda não configurado.');
+            }
         }
     </script>
 </body>
