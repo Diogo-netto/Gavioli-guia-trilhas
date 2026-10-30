@@ -20,7 +20,15 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Gavioli Guia Trilhas | Lima Duarte e Ibitipoca" name="twitter:title"/>
 <meta content="Conheça as trilhas com Pedro Gavioli, guia de moto off-road na Zona da Mata Mineira." name="twitter:description"/>
-<!-- Depois de registrar o domínio: adicionar canonical, og:url e og:image (URL absoluta da foto original). -->
+<!-- GAVIOLI V2: metadata de produção — preserve a URL base ao migrar para domínio personalizado. -->
+<link rel="canonical" href="https://diogo-netto.github.io/Gavioli-guia-trilhas/">
+<meta property="og:url" content="https://diogo-netto.github.io/Gavioli-guia-trilhas/">
+<meta property="og:image" content="https://diogo-netto.github.io/Gavioli-guia-trilhas/img/WhatsApp%20fotos%20Lima%20Duarte/WhatsApp%20Image%202026-10-06%20at%2008.54.18%20%281%29.jpeg">
+<meta property="og:image:alt" content="Trilha de moto na região de Lima Duarte - Gavioli Guia Trilhas">
+<meta name="twitter:image" content="https://diogo-netto.github.io/Gavioli-guia-trilhas/img/WhatsApp%20fotos%20Lima%20Duarte/WhatsApp%20Image%202026-10-06%20at%2008.54.18%20%281%29.jpeg">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="sitemap" type="application/xml" href="./sitemap.xml">
+
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1771,7 +1779,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,900&amp;display=swap" rel="stylesheet"/>
 <!-- Phosphor Icons -->
 <script src="https://unpkg.com/@phosphor-icons/web"></script>
-<!-- GSAP & ScrollTrigger -->
+<!-- GSAP opcional: não bloqueia a página; caso a CDN falhe, a animação nativa assume. -->
+<script id="gavioli-gsap-cdn" async src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
 <style>
 
@@ -2016,6 +2025,71 @@ body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){.trail-card,.trail-card-photo{transition:none}}
 
 </style>
+<style id="gavioli-v2-styles">
+/* ============ GAVIOLI 2.0 — melhorias aditivas, fundo e identidade preservados ============ */
+:root{--v2-accent:#ff5d25;--v2-panel:#111417;--v2-line:rgba(255,255,255,.14)}
+.v2-hero-quick{position:absolute;z-index:62;right:clamp(16px,4vw,58px);bottom:clamp(80px,8vh,112px);display:flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:11px 17px;border:1px solid rgba(255,255,255,.4);background:rgba(7,9,11,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:99px;box-shadow:0 18px 40px rgba(0,0,0,.34);color:#f7f7f7;font:800 11px/1.2 Montserrat,sans-serif;letter-spacing:.075em;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.v2-hero-quick i{color:#ff793d;font-size:20px}.v2-hero-quick:hover{background:#f15a24;border-color:#ff8756;color:#111;transform:translateY(-3px)}.v2-hero-quick:hover i{color:#141414}
+#bike-stage{--v2-ride:0}
+/* Névoa orgânica discreta, acompanha a moto sem tocar nos keyframes existentes. */
+#bike-wrapper:before{content:"";position:absolute;z-index:-1;bottom:-2%;left:8%;width:68%;height:33%;border-radius:50%;background:radial-gradient(ellipse at 32% 60%,rgba(203,172,122,.25),rgba(150,139,118,.11) 37%,transparent 73%);filter:blur(19px);opacity:var(--v2-dust,0);pointer-events:none}
+#dirt-bike{filter:drop-shadow(0 13px 10px rgba(0,0,0,.8)) drop-shadow(0 4px 2px rgba(32,20,13,.28));}
+.v2-social-proof{margin:0 0 95px;padding:clamp(27px,5vw,54px);border:1px solid var(--v2-line);border-radius:26px;background:radial-gradient(circle at 0 0,rgba(255,93,37,.11),transparent 40%),linear-gradient(155deg,#15191d,#090a0c 75%);position:relative;overflow:hidden}
+.v2-section-kicker{color:#ff783b;font:900 11px/1.4 Montserrat,sans-serif;letter-spacing:.23em;text-transform:uppercase;margin:0 0 15px}
+.v2-section-heading{font:italic 900 clamp(30px,4.5vw,51px)/1.09 Montserrat,sans-serif;letter-spacing:-.045em;color:white;margin:0}.v2-section-heading span{color:#ff702c}
+.v2-section-lead{color:#c3c7cc;font:500 14px/1.8 Montserrat,sans-serif;max-width:650px;margin:18px 0 28px}
+.v2-reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.v2-review-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.14);border-radius:17px;padding:27px 23px;min-width:0;display:flex;flex-direction:column;gap:16px;box-shadow:0 12px 38px rgba(0,0,0,.1)}
+.v2-review-stars{color:#ff9455;letter-spacing:4px;font-size:20px;line-height:1}
+.v2-review-quote{color:#f0f2f3;font:500 14px/1.85 Montserrat,sans-serif;margin:0;overflow-wrap:anywhere;flex:1}
+.v2-review-meta{padding-top:13px;border-top:1px solid rgba(255,255,255,.1);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:11px}.v2-review-meta strong{color:white;font-weight:900}.v2-review-meta span{color:#a6aab0}.v2-review-meta a{color:#ff9a64;font-weight:800;text-underline-offset:3px}
+.v2-cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.v2-cert-card{background:linear-gradient(140deg,#202328,#131517);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:20px;display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px 14px;align-items:center}.v2-cert-icon{height:52px;width:52px;border-radius:13px;background:rgba(255,93,37,.14);color:#ff8651;display:grid;place-items:center;font-size:29px}.v2-cert-info h3{color:white;font:900 15px/1.45 Montserrat,sans-serif;margin:0;overflow-wrap:anywhere}.v2-cert-info p{color:#c9ccd0;font-size:12px;margin:4px 0 0}.v2-cert-link{grid-column:1/-1;margin-top:9px;border-top:1px solid #3e4245;padding-top:15px;color:#ff945f;text-decoration:none;font:900 12px Montserrat,sans-serif}.v2-cert-link:hover{text-decoration:underline}
+.v2-share-region{display:inline-flex;gap:7px;align-items:center;justify-content:center;min-height:46px;border:1px solid rgba(255,255,255,.27);background:#24272a;color:#f5f5f5;border-radius:12px;padding:11px 16px;font:800 12px Montserrat,sans-serif;cursor:pointer}.v2-share-region:hover{background:#383c40}.v2-share-region i{font-size:18px;color:#ff9b62}
+.v2-consent{position:fixed;z-index:300;bottom:18px;left:50%;transform:translateX(-50%);max-width:min(700px,calc(100vw - 24px));width:100%;display:flex;align-items:center;justify-content:space-between;gap:17px;padding:16px 18px;background:#151719;border:1px solid #6a635e;border-radius:17px;box-shadow:0 14px 45px rgba(0,0,0,.66)}.v2-consent p{font:500 12px/1.6 Montserrat,sans-serif;color:#e3e4e5;margin:0}.v2-consent-actions{display:flex;gap:8px;flex:none}.v2-consent button{border:1px solid #8b8c8d;border-radius:9px;padding:10px 11px;color:#fff;background:#272a2d;font:900 11px Montserrat,sans-serif;cursor:pointer}.v2-consent button:last-child{background:#ff5d25;color:#120c09;border-color:#ff5d25}
+.v2-toast{position:fixed;z-index:310;left:50%;bottom:24px;transform:translate(-50%,120px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;padding:12px 17px;border:1px solid #5c5e60;border-radius:12px;background:#1b1d1f;color:white;font:700 12px/1.5 Montserrat,sans-serif;max-width:92vw;text-align:center}.v2-toast.active{transform:translate(-50%,0);opacity:1}
+.v2-share-region:focus-visible,.v2-hero-quick:focus-visible,.v2-consent button:focus-visible{outline:3px solid white;outline-offset:4px}
+.v2-social-proof[hidden],.v2-consent[hidden]{display:none!important}
+@media(max-width:640px){.v2-hero-quick{right:50%;transform:translateX(50%);bottom:70px;min-height:46px;min-width:153px}.v2-hero-quick:hover{transform:translateX(50%)}.v2-social-proof{margin-bottom:70px;padding:27px 19px}.v2-consent{flex-direction:column;align-items:stretch}.v2-consent-actions button{flex:1}.v2-share-region{width:100%}}
+@media(prefers-reduced-motion:reduce){.v2-toast,.v2-hero-quick{transition:none!important}#bike-wrapper:before{display:none}}
+</style>
+
+<style id="gavioli-cinematic-enduro-v3">
+/* Correção do início: no quadro zero, o título aparece; a moto NÃO aparece. */
+#bike-stage { height: 252svh; }
+#bike-stage > #hero { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+#bike-stage #bike-wrapper {
+  left: 50%;
+  opacity: 0;
+  transform: translate3d(-230%, 10vh, 0) rotate(-8deg) scale(.68);
+  transform-origin: center center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+/* Evitar a névoa com blur gigante escalando junto da moto. */
+#bike-stage #bike-wrapper::before { display: none; }
+#bike-stage #dust-particles {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(.6);
+  will-change: transform, opacity;
+}
+#bike-stage #dirt-bike { filter: drop-shadow(0 9px 9px rgba(0, 0, 0, .6)); }
+#bike-stage #speed-lines, #bike-stage #impact-flash { opacity: 0; will-change: opacity; }
+#bike-stage #impact-flash { background: radial-gradient(ellipse at 57% 48%, rgba(255, 77, 0, .24), transparent 64%); }
+#hero-text { will-change: opacity, transform; }
+@media (max-width: 640px) {
+  #bike-stage { height: 238svh; }
+  #bike-stage #dust-particles { filter: blur(9px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #bike-stage { height: 100svh; }
+  #bike-stage #bike-wrapper, #bike-stage #dust-particles,
+  #bike-stage #speed-lines, #bike-stage #impact-flash, #ride-progress { display: none !important; }
+  #hero-text { opacity: 1 !important; transform: none !important; }
+}
+</style>
 </head>
 <body class="relative">
 <!-- LOADER -->
@@ -2038,8 +2112,8 @@ body{overflow-x:clip}
 <li><a class="hover:text-neon-500 transition-colors" href="#lugares">Trilhas</a></li>
 <li><a class="hover:text-neon-500 transition-colors" href="#como-funciona">Como funciona</a></li>
 </ul>
-<a class="header-instagram" data-instagram-link href="https://www.instagram.com/" aria-label="Instagram de Pedro Gavioli" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> INSTAGRAM</a>
-<a class="hidden md:flex items-center gap-2 bg-neon-500 hover:bg-white text-black px-6 py-2 rounded-full font-bold italic transition-all transform hover:scale-105 shadow-neon" href="https://wa.me/5532000000000" target="_blank">
+<a class="header-instagram" data-instagram-link href="#contato" aria-label="Instagram de Pedro Gavioli" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> INSTAGRAM</a>
+<a class="hidden md:flex items-center gap-2 bg-neon-500 hover:bg-white text-black px-6 py-2 rounded-full font-bold italic transition-all transform hover:scale-105 shadow-neon" href="#contato" target="_blank">
 <i class="ph-fill ph-whatsapp-logo text-xl"></i> AGENDAR
 
             </a>
@@ -2059,7 +2133,7 @@ body{overflow-x:clip}
 
         </a>
 <div class="mobile-social-links">
-<a class="mobile-link mobile-social-ig" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
+<a class="mobile-link mobile-social-ig" data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
 </div>
 </div>
 <!-- HERO SECTION (TELA INICIAL PURA) -->
@@ -2098,6 +2172,7 @@ body{overflow-x:clip}
 <div class="w-[2px] md:w-[4px] h-full bg-neon-500 opacity-30 transform -skew-x-12 translate-x-[40vw]"></div>
 <div class="w-[1px] md:w-[3px] h-full bg-neon-500 opacity-20 transform -skew-x-12 translate-x-[90vw]"></div>
 </div>
+<button type="button" id="v2-skip" class="v2-hero-quick" aria-label="Pular apresentação e ver as trilhas"><i class="ph ph-compass" aria-hidden="true"></i> VER AS TRILHAS <i class="ph ph-arrow-down-right" aria-hidden="true"></i></button>
 <div aria-hidden="true" class="ride-progress" id="ride-progress"><span class="ride-progress-label">ACELERE PARA EXPLORAR</span><div class="ride-progress-track"><span id="ride-progress-bar"></span></div><span class="ride-progress-indicator">01 / 02</span></div><div aria-hidden="true" id="impact-flash"></div></section></div>
 <!-- CONTEÚDO PRINCIPAL (Sobe imediatamente após o hero) -->
 <main class="relative z-40 bg-dark-900 pb-24 shadow-[0_-20px_50px_rgba(0,0,0,1)] w-full overflow-hidden" id="main-content">
@@ -2161,7 +2236,7 @@ body{overflow-x:clip}
 <div class="trail-card-tags"><span>Serras da região</span><span>Trechos de pedra</span><span>Cultura enduro</span></div>
 <div class="trail-card-actions">
 <button aria-label="Ver galeria de Ibitipoca" class="trail-view-photos" onclick="openModal('modal-ibitipoca')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
-<a aria-label="Conversar sobre trilhas em Ibitipoca" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+<a aria-label="Conversar sobre trilhas em Ibitipoca" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." href="#contato" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
 </div>
 </div>
 </article>
@@ -2181,7 +2256,7 @@ body{overflow-x:clip}
 <div class="trail-card-tags"><span>Estradas rurais</span><span>Cachoeiras</span><span>Cortes na serra</span></div>
 <div class="trail-card-actions">
 <button aria-label="Ver galeria de Bom Jardim" class="trail-view-photos" onclick="openModal('modal-bomjardim')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
-<a aria-label="Conversar sobre trilhas em Bom Jardim" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+<a aria-label="Conversar sobre trilhas em Bom Jardim" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." href="#contato" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
 </div>
 </div>
 </article>
@@ -2201,7 +2276,7 @@ body{overflow-x:clip}
 <div class="trail-card-tags"><span>Serra do Funil</span><span>Estradas em subida</span><span>Serra Negra</span></div>
 <div class="trail-card-actions">
 <button aria-label="Ver galeria de Rio Preto" class="trail-view-photos" onclick="openModal('modal-riopreto')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
-<a aria-label="Conversar sobre trilhas em Rio Preto" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+<a aria-label="Conversar sobre trilhas em Rio Preto" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" href="#contato" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
 </div>
 </div>
 </article>
@@ -2221,11 +2296,26 @@ body{overflow-x:clip}
 <div class="trail-card-tags"><span>Base em Lima Duarte</span><span>Caminhos rurais</span><span>Tradição off-road</span></div>
 <div class="trail-card-actions">
 <button aria-label="Ver galeria de Lima Duarte" class="trail-view-photos" onclick="openModal('modal-limaduarte')" type="button"><i class="ph-fill ph-images"></i> Ver galeria <i class="ph ph-arrow-up-right"></i></button>
-<a aria-label="Conversar sobre trilhas em Lima Duarte" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
+<a aria-label="Conversar sobre trilhas em Lima Duarte" class="trail-card-whatsapp" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" href="#contato" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i><span>Conversar</span></a>
 </div>
 </div>
 </article>
 </div>
+</section>
+
+<!-- GAVIOLI V2: avaliações verificáveis, sem depoimentos ou números inventados -->
+<section id="v2-reviews" class="v2-social-proof" hidden aria-labelledby="v2-reviews-title">
+  <p class="v2-section-kicker">A EXPERIÊNCIA DA TURMA</p>
+  <h2 id="v2-reviews-title" class="v2-section-heading">QUEM PILOTOU, <span>CONTA.</span></h2>
+  <p class="v2-section-lead">Depoimentos reais, publicados com autorização dos clientes.</p>
+  <div id="v2-reviews-grid" class="v2-reviews-grid"></div>
+</section>
+<!-- GAVIOLI V2: certificados somente quando o Pedro incluir documentos reais -->
+<section id="v2-certificates" class="v2-social-proof" hidden aria-labelledby="v2-certificates-title">
+  <p class="v2-section-kicker">COMPROMISSO COM A TRILHA</p>
+  <h2 id="v2-certificates-title" class="v2-section-heading">CONHECIMENTO <span>COMPROVADO.</span></h2>
+  <p class="v2-section-lead">Certificados, formações e referências profissionais apresentados pelo guia.</p>
+  <div id="v2-cert-grid" class="v2-cert-grid"></div>
 </section>
 <!-- CONTATO CTA -->
 <section aria-labelledby="how-title" class="how-section content-reveal" id="como-funciona">
@@ -2235,14 +2325,14 @@ body{overflow-x:clip}
 <div class="how-step"><span class="how-step-index">02</span><i class="ph ph-map-trifold"></i><h3>COMBINE O ROTEIRO</h3><p>Conversem sobre a região, a data e as condições do trajeto antes de sair.</p></div>
 <div class="how-step"><span class="how-step-index">03</span><i class="ph ph-mountains"></i><h3>PARTIU TRILHA</h3><p>Curta a região com orientação local, respeitando as condições e os acessos permitidos.</p></div>
 </div>
-<a class="how-cta" data-wa-message="Olá, Pedro! Vi o site Gavioli Guia Trilhas e quero organizar um rolê de moto." href="https://wa.me/5532000000000" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i> COMBINAR MEU ROLÊ <i class="ph ph-arrow-right"></i></a>
+<a class="how-cta" data-wa-message="Olá, Pedro! Vi o site Gavioli Guia Trilhas e quero organizar um rolê de moto." href="#contato" rel="noopener noreferrer" target="_blank"><i class="ph-fill ph-whatsapp-logo"></i> COMBINAR MEU ROLÊ <i class="ph ph-arrow-right"></i></a>
 </section><section class="relative py-16 md:py-24 px-6 md:px-8 rounded-3xl border border-white/10 overflow-hidden text-center content-reveal" id="contato">
 <div class="absolute inset-0 bg-gradient-to-b from-dark-800 to-black z-0"></div>
 <div class="neon-orb absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none z-0"></div>
 <div class="relative z-10">
 <h2 class="text-3xl md:text-7xl font-black text-white italic tracking-tighter mb-4 md:mb-6 uppercase">Vamos <span class="text-neon-500 text-glow">Acelerar?</span></h2>
 <p class="text-sm md:text-xl text-gray-400 mb-8 md:mb-10 font-light max-w-xl mx-auto">As melhores histórias começam com uma conversa. Conte sobre sua turma e combine seu próximo rolê diretamente com o Pedro.</p>
-<a class="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-base md:text-xl font-black text-black uppercase italic tracking-wider bg-neon-500 rounded-lg hover:bg-white transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-2 w-full md:w-auto" href="https://wa.me/5532000000000" rel="noopener" target="_blank">
+<a class="inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-base md:text-xl font-black text-black uppercase italic tracking-wider bg-neon-500 rounded-lg hover:bg-white transition-all duration-300 shadow-neon hover:shadow-neon-hover transform hover:-translate-y-2 w-full md:w-auto" href="#contato" rel="noopener" target="_blank">
 <i class="ph-fill ph-whatsapp-logo text-2xl md:text-3xl mr-3"></i> Falar no WhatsApp
 
                     </a>
@@ -2252,9 +2342,10 @@ body{overflow-x:clip}
 <footer class="text-center py-8 mt-16 md:mt-20 border-t border-white/5 relative z-10">
 <p class="text-gray-600 font-bold text-xs md:text-sm uppercase tracking-widest px-4 leading-relaxed">© 2026 GAVIOLI GUIA TRILHAS • Lima Duarte, MG • Experiências off-road.</p>
 <div class="footer-social">
-<a data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
+<a data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo"></i> Instagram</a>
 </div>
 <p>Desenvolvido por Diogo Netto — Astrobyte Tecnologias</p>
+<button type="button" id="v2-privacy-settings" style="display:block;margin:12px auto 0;font:700 11px Montserrat,sans-serif;color:#aaa;text-decoration:underline;text-underline-offset:3px">Preferências de privacidade</button>
 </footer>
 </main>
 <!-- ========================================== -->
@@ -2269,8 +2360,9 @@ body{overflow-x:clip}
 <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Ibitipoca</h2>
 <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Paisagens de serra, caminhos rurais e trechos pedregosos fazem parte dos relatos de pilotos na região de Ibitipoca. Consulte Pedro sobre roteiros disponíveis e acessos permitidos.</p>
 <div class="gallery-social-actions" aria-label="Contato sobre Ibitipoca">
-<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Ibitipoca</a>
-<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<a class="gallery-social-wa" href="#contato" data-wa-message="Olá, Pedro! Conheci a região de Ibitipoca pelo site Gavioli e quero saber quais trilhas estão disponíveis para minha turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Ibitipoca</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<button type="button" class="v2-share-region" data-share-region="ibitipoca" aria-label="Compartilhar galeria de Ibitipoca"><i class="ph ph-share-network" aria-hidden="true"></i> Compartilhar galeria</button>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 <img alt="Ibitipoca - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto08" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Ibitipoca/WhatsApp Image 2026-10-06 at 09.01.40.jpeg" tabindex="0"/>
@@ -2313,8 +2405,9 @@ body{overflow-x:clip}
 <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Bom Jardim</h2>
 <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Trilheiros registram trajetos de moto nos arredores de Bom Jardim de Minas, passando por estradas rurais, cortes da antiga ferrovia e caminhos que levam à região das cachoeiras.</p>
 <div class="gallery-social-actions" aria-label="Contato sobre Bom Jardim">
-<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Bom Jardim</a>
-<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<a class="gallery-social-wa" href="#contato" data-wa-message="Olá, Pedro! Vi as fotos de Bom Jardim de Minas e gostaria de saber sobre os roteiros e as condições para nossa turma." target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Bom Jardim</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<button type="button" class="v2-share-region" data-share-region="bomjardim" aria-label="Compartilhar galeria de Bom Jardim"><i class="ph ph-share-network" aria-hidden="true"></i> Compartilhar galeria</button>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 <img alt="Bom Jardim - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto14" decoding="async" loading="lazy" role="button" src="img/whatsApp fotos Bom Jardim/WhatsApp Image 2026-10-06 at 09.11.43 (1).jpeg" tabindex="0"/>
@@ -2352,8 +2445,9 @@ body{overflow-x:clip}
 <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Rio Preto</h2>
 <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">A região de Rio Preto tem a Serra do Funil e seus caminhos de terra em subida, com paisagens marcantes das montanhas da Serra Negra. Confirme previamente as condições e o acesso ao trajeto.</p>
 <div class="gallery-social-actions" aria-label="Contato sobre Rio Preto">
-<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Rio Preto</a>
-<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<a class="gallery-social-wa" href="#contato" data-wa-message="Olá, Pedro! Vi as fotos da região de Rio Preto e Serra do Funil. Podemos conversar sobre um roteiro por lá?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Rio Preto</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<button type="button" class="v2-share-region" data-share-region="riopreto" aria-label="Compartilhar galeria de Rio Preto"><i class="ph ph-share-network" aria-hidden="true"></i> Compartilhar galeria</button>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 <img alt="Rio Preto - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto19" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos do funil/WhatsApp Image 2026-10-06 at 09.20.56 (1).jpeg" tabindex="0"/>
@@ -2396,8 +2490,9 @@ body{overflow-x:clip}
 <h2 class="text-4xl md:text-7xl font-black text-neon-500 italic uppercase tracking-tighter mb-2 md:mb-4 text-glow">Lima Duarte</h2>
 <p class="text-gray-300 text-sm md:text-lg max-w-3xl mb-8 md:mb-12">Lima Duarte concentra saídas e percursos conhecidos pelos trilheiros. Registros da comunidade mencionam Olaria, Funil e Porteira Azul entre outros caminhos; a disponibilidade varia conforme as condições locais.</p>
 <div class="gallery-social-actions" aria-label="Contato sobre Lima Duarte">
-<a class="gallery-social-wa" href="https://wa.me/5532000000000" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Lima Duarte</a>
-<a class="gavioli-gallery-instagram" data-instagram-link href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<a class="gallery-social-wa" href="#contato" data-wa-message="Olá, Pedro! Gostaria de organizar uma trilha saindo de Lima Duarte. Como funciona para combinar data e nível da turma?" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i> Conversar sobre Lima Duarte</a>
+<a class="gavioli-gallery-instagram" data-instagram-link href="#contato" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-instagram-logo" aria-hidden="true"></i> Ver Instagram do guia</a>
+<button type="button" class="v2-share-region" data-share-region="limaduarte" aria-label="Compartilhar galeria de Lima Duarte"><i class="ph ph-share-network" aria-hidden="true"></i> Compartilhar galeria</button>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 <img alt="Lima Duarte - galeria 1: trilha de moto na região" aria-label="Ampliar foto da galeria" class="w-full h-56 md:h-64 object-cover rounded-xl hover:scale-[1.02] transition-transform gallery-thumbnail" data-photo-slot="foto25" decoding="async" loading="lazy" role="button" src="img/WhatsApp fotos Lima Duarte/WhatsApp Image 2026-10-06 at 08.54.16 (1).jpeg" tabindex="0"/>
@@ -2433,6 +2528,11 @@ body{overflow-x:clip}
 </div>
 </div>
 <!-- SCRIPTS MÁGICOS: visual original, lógica estabilizada -->
+<div class="v2-consent" id="v2-consent" hidden role="region" aria-label="Escolhas de privacidade">
+  <p>Usamos métricas opcionais de navegação para melhorar o site. Você pode recusar sem perder funcionalidades.</p>
+  <div class="v2-consent-actions"><button id="v2-consent-decline" type="button">Somente essenciais</button><button id="v2-consent-accept" type="button">Aceitar métricas</button></div>
+</div>
+<div id="v2-toast" class="v2-toast" role="status" aria-live="polite"></div>
 <div aria-label="Fotografia ampliada" aria-modal="true" class="photo-lightbox" hidden="" id="photo-lightbox" role="dialog">
 <button aria-label="Fechar foto" class="lb-close" id="lightbox-close"><i class="ph ph-x"></i></button>
 <button aria-label="Foto anterior" class="lb-nav lb-prev" id="lightbox-prev"><i class="ph ph-caret-left"></i></button>
@@ -2483,51 +2583,111 @@ body{overflow-x:clip}
   window.openModal=openModal;window.closeModal=closeModal;
   document.querySelectorAll('[role="dialog"]').forEach(m=>m.addEventListener('click',event=>{if(event.target===m)closeModal(m.id)}));
 
-  /* Reversible, fully scroll-synchronized cinematic sequence.
-     Progress is determined by the STAGE, not by elapsed seconds or wheel speed.
-     Therefore the camera close-up always finishes before the sticky hero releases. */
+  /* GAVIOLI CINEMATIC ENDURO V4 — APROXIMAÇÃO FRONTAL
+     A moto NÃO aparece na primeira tela. Após entrar pela esquerda,
+     ela se centraliza e cresce progressivamente na direção da câmera,
+     em vez de atravessar para o lado direito.
+     Mantém o mesmo scroll sticky, a foto original e a reserva WAAPI.
+     Somente transform e opacity: sem Canvas nem filtros pesados. */
+  let gsapTimeline=null;
+  let motionEngine='WAAPI Cinematic Enduro V4';
   function animation(target,keyframes){
     const a=target.animate(keyframes,{duration:DURATION,fill:'both',easing:'linear'});
-    a.pause(); a.currentTime=0; frames.push(a);
+    a.pause();a.currentTime=0;frames.push(a);
+  }
+  function resetMotion(){
+    if(gsapTimeline){gsapTimeline.kill();gsapTimeline=null;}
+    frames.forEach(a=>a.cancel());frames=[];
+    if(window.gsap){window.gsap.killTweensOf([bike,headline,dust,lines,flash]);}
+    for(const el of [bike,headline,dust,lines,flash]){
+      if(el){el.style.removeProperty('transform');el.style.removeProperty('opacity');el.style.removeProperty('visibility');}
+    }
   }
   function buildMotion(){
-    frames.forEach(a=>a.cancel());frames=[];
-    if(reduceMotion||!bike||typeof bike.animate!=='function'){
-      bike.style.left='50%';bike.style.transform='translateX(-50%) scale(.65)';
-      bike.style.opacity='.9';headline.style.opacity='1';hint.style.display='none';return;
+    resetMotion();
+    if(!bike||!headline)return;
+    if(reduceMotion){
+      motionEngine='movimento reduzido';
+      bike.style.opacity='0';headline.style.opacity='1';
+      hint.style.display='none';return;
     }
     const mobile=innerWidth<640;
-    const y=mobile?'-5vh':'-11vh';
-    const endScale=mobile?19:15;
-    const motorcycle=[
-      {offset:0,transform:'translate3d(-230%, 10vh, 0) rotate(-8deg) scale(.68)',opacity:0},
-      {offset:.08,transform:'translate3d(-220%, 9vh, 0) rotate(-8deg) scale(.7)',opacity:0},
-      {offset:.18,transform:'translate3d(-150%, 5vh, 0) rotate(-7deg) scale(.82)',opacity:1},
-      {offset:.34,transform:'translate3d(-88%, 1vh, 0) rotate(-10deg) scale(.95)',opacity:1},
-      {offset:.50,transform:`translate3d(-50%, ${y}, 0) rotate(-24deg) scale(1.08)`,opacity:1},
-      {offset:.66,transform:`translate3d(-50%, ${y}, 0) rotate(-24deg) scale(1.16)`,opacity:1},
-      {offset:.82,transform:`translate3d(-50%, -14vh, 0) rotate(-18deg) scale(${(endScale*.42).toFixed(2)})`,opacity:1},
-      {offset:.94,transform:`translate3d(-50%, -18vh, 0) rotate(-10deg) scale(${endScale})`,opacity:1},
-      {offset:.995,transform:`translate3d(-50%, -19vh, 0) rotate(-8deg) scale(${endScale*1.26})`,opacity:0},
-      {offset:1,transform:`translate3d(-50%, -19vh, 0) rotate(-8deg) scale(${endScale*1.26})`,opacity:0}
-    ];
-    animation(bike,motorcycle);
+    // Zoom forte, mas limitado: a moto vem até a lente e desaparece no final.
+    // Percentuais de X relativos à própria moto. -50 centraliza no hero.
+    const scaleApproach=mobile?2.95:3.20;
+    const scaleNear=mobile?3.70:4.10;
+    const scaleExit=mobile?3.90:4.35;
+    const approachY=mobile?'-8vh':'-10vh';
+    const nearY=mobile?'-10vh':'-13vh';
+
+    if(window.gsap && typeof window.gsap.timeline==='function'){
+      const g=window.gsap;
+      motionEngine='GSAP Cinematic Enduro V4 - zoom frontal';
+      g.set(bike,{x:0,xPercent:-230,y:'10vh',rotation:-8,scale:.68,autoAlpha:0,force3D:true});
+      g.set(headline,{y:0,scale:1,opacity:1});
+      g.set(dust,{scale:.55,opacity:0});
+      g.set(lines,{opacity:0});g.set(flash,{opacity:0});
+      const tl=g.timeline({paused:true,defaults:{ease:'none'}});
+      // 0–12%: apenas o título, moto totalmente invisível.
+      // 12–60%: a moto entra pela esquerda e busca o centro.
+      tl.to(bike,{xPercent:-155,y:'5vh',rotation:-10,scale:.82,autoAlpha:.94,duration:.16,ease:'power2.in'},.12);
+      tl.to(bike,{xPercent:-78,y:'-1vh',rotation:-9,scale:1.04,autoAlpha:1,duration:.18,ease:'power2.out'},.28);
+      tl.to(bike,{xPercent:-52,y:'-5vh',rotation:-6,scale:mobile?1.26:1.35,duration:.14,ease:'sine.inOut'},.46);
+      // 60–100%: SEM travessia lateral; acelera em direção à câmera.
+      tl.to(bike,{xPercent:-50,y:approachY,rotation:-3,scale:mobile?1.78:1.95,duration:.14,ease:'power1.in'},.60);
+      tl.to(bike,{xPercent:-50,y:nearY,rotation:0,scale:scaleApproach,duration:.13,ease:'power2.in'},.74);
+      tl.to(bike,{xPercent:-50,y:nearY,rotation:0,scale:scaleNear,duration:.09,ease:'power2.in'},.87);
+      tl.to(bike,{xPercent:-50,y:nearY,rotation:0,scale:scaleExit,autoAlpha:0,duration:.04,ease:'power1.in'},.96);
+      tl.to(headline,{opacity:0,y:-35,scale:.97,duration:.29,ease:'power1.inOut'},.38);
+      tl.to(dust,{opacity:.30,scale:1.15,duration:.19,ease:'sine.out'},.24);
+      tl.to(dust,{opacity:.13,scale:1.65,duration:.23,ease:'sine.inOut'},.43);
+      tl.to(dust,{opacity:0,duration:.15},.66);
+      tl.to(lines,{opacity:.35,duration:.09},.79);
+      tl.to(lines,{opacity:0,duration:.11},.89);
+      tl.to(flash,{opacity:.12,duration:.06},.89);
+      tl.to(flash,{opacity:0,duration:.05},.95);
+      gsapTimeline=tl;
+      gsapTimeline.progress(0).pause();
+      return;
+    }
+
+    motionEngine='WAAPI Cinematic Enduro V4 - zoom frontal (sem CDN)';
+    if(typeof bike.animate!=='function'){
+      bike.style.opacity='0';headline.style.opacity='1';return;
+    }
+    // Fallback com os mesmos marcos da sequência GSAP; preserva o efeito offline.
+    animation(bike,[
+      {offset:0,   transform:'translate3d(-230%,10vh,0) rotate(-8deg) scale(.68)',opacity:0},
+      {offset:.12, transform:'translate3d(-230%,10vh,0) rotate(-8deg) scale(.68)',opacity:0},
+      {offset:.28, transform:'translate3d(-155%,5vh,0) rotate(-10deg) scale(.82)',opacity:.94,easing:'ease-in'},
+      {offset:.46, transform:'translate3d(-78%,-1vh,0) rotate(-9deg) scale(1.04)',opacity:1,easing:'ease-out'},
+      {offset:.60, transform:`translate3d(-52%,-5vh,0) rotate(-6deg) scale(${mobile?1.26:1.35})`,opacity:1},
+      {offset:.74, transform:`translate3d(-50%,${approachY},0) rotate(-3deg) scale(${mobile?1.78:1.95})`,opacity:1,easing:'ease-in'},
+      {offset:.87, transform:`translate3d(-50%,${nearY},0) rotate(0deg) scale(${scaleApproach})`,opacity:1,easing:'ease-in'},
+      {offset:.96, transform:`translate3d(-50%,${nearY},0) rotate(0deg) scale(${scaleNear})`,opacity:1,easing:'ease-in'},
+      {offset:1,   transform:`translate3d(-50%,${nearY},0) rotate(0deg) scale(${scaleExit})`,opacity:0}
+    ]);
     animation(headline,[
-      {offset:0,transform:'translateY(0) scale(1)',opacity:1},
-      {offset:.23,transform:'translateY(0) scale(1)',opacity:1},
-      {offset:.60,transform:'translateY(-80px) scale(.83)',opacity:0},
-      {offset:1,transform:'translateY(-80px) scale(.83)',opacity:0}
+      {offset:0,opacity:1,transform:'translateY(0px) scale(1)'},
+      {offset:.38,opacity:1,transform:'translateY(0px) scale(1)'},
+      {offset:.67,opacity:0,transform:'translateY(-35px) scale(.97)'},
+      {offset:1,opacity:0,transform:'translateY(-35px) scale(.97)'}
     ]);
     animation(dust,[
-      {offset:0,transform:'scale(.7)',opacity:0},
-      {offset:.2,transform:'scale(2)',opacity:.25},
-      {offset:.48,transform:'scale(3)',opacity:.65},
-      {offset:.75,transform:'scale(6)',opacity:.85},
-      {offset:.98,transform:'scale(7)',opacity:0},
-      {offset:1,transform:'scale(7)',opacity:0}
+      {offset:0,opacity:0,transform:'scale(.55)'},
+      {offset:.24,opacity:0,transform:'scale(.55)'},
+      {offset:.43,opacity:.30,transform:'scale(1.15)'},
+      {offset:.66,opacity:.13,transform:'scale(1.65)'},
+      {offset:.81,opacity:0,transform:'scale(1.65)'},
+      {offset:1,opacity:0,transform:'scale(1.65)'}
     ]);
-    animation(lines,[{offset:0,opacity:0},{offset:.59,opacity:0},{offset:.76,opacity:.95},{offset:.90,opacity:1},{offset:1,opacity:0}]);
-    animation(flash,[{offset:0,opacity:0},{offset:.76,opacity:0},{offset:.92,opacity:.38},{offset:.99,opacity:.8},{offset:1,opacity:0}]);
+    animation(lines,[
+      {offset:0,opacity:0},{offset:.79,opacity:0},{offset:.88,opacity:.35},
+      {offset:1,opacity:0}
+    ]);
+    animation(flash,[
+      {offset:0,opacity:0},{offset:.89,opacity:0},{offset:.95,opacity:.12},{offset:1,opacity:0}
+    ]);
   }
   function progressNow(){
     const rect=stage.getBoundingClientRect();
@@ -2537,9 +2697,10 @@ body{overflow-x:clip}
   function sync(){
     framePending=false;
     const t=progressNow();
-    if(frames.length) {
-      // Exact frame at both ends. No asynchronous playbackRate, stuck pause, or random resets.
-      for(const a of frames){a.pause();a.currentTime=Math.round(t*DURATION);}
+    if(gsapTimeline){gsapTimeline.progress(t).pause();}
+    else if(frames.length){
+      const time=t*DURATION;
+      for(const a of frames){a.currentTime=time;}
     }
     bar.style.width=(100*t).toFixed(2)+'%';
     hint.style.opacity=t>.93?'0':'1';
@@ -2640,61 +2801,34 @@ body{overflow-x:clip}
     });
   });
 
-  // Perfil público do Pedro: somente o @, sem / e sem URL.
-  // IMPORTANTE: substitua SEU_USUARIO_AQUI antes de publicar.
-  const INSTAGRAM_USERNAME='SEU_USUARIO_AQUI';
-  const instagramHref=INSTAGRAM_USERNAME==='SEU_USUARIO_AQUI'
-    ? 'https://www.instagram.com/'
-    : `https://www.instagram.com/${encodeURIComponent(INSTAGRAM_USERNAME.replace(/^@/,''))}/`;
-  document.querySelectorAll('a[data-instagram-link]').forEach(a=>{
-    a.href=instagramHref;a.rel='noopener noreferrer';a.target='_blank';
-  });
-// One WhatsApp number, all buttons use the chosen destination's message.
-  const WHATSAPP_NUMBER='5532000000000'; // TROCAR: 55 + DDD + telefone do Pedro.
-  document.querySelectorAll('a[href*="wa.me/"], a[data-wa-message]').forEach(a=>{
-    const message=a.dataset.waMessage||'Olá, Pedro! Vi o Gavioli Guia Trilhas e gostaria de conversar sobre uma trilha.';
-    a.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    a.rel='noopener noreferrer';a.target='_blank';
-  });
+  // Contatos gerenciados exclusivamente pelo módulo ./js/public-content.js.
+  // Em caso de módulo indisponível, HTML mantém links de contato neutros (#contato).
+  const WHATSAPP_NUMBER = '';
+
   // Avoid making initial content wait for every gallery picture or external resource.
   function hideLoader(){if(!loader||loader.dataset.done)return;loader.dataset.done='yes';
     if(loaderProgress){loaderProgress.style.transition='width .35s ease';loaderProgress.style.width='100%'}
     loader.style.transition='opacity .34s ease';loader.style.opacity='0';loader.style.pointerEvents='none';
     setTimeout(()=>{loader.style.display='none'},380);
   }
+  byId('v2-skip')?.addEventListener('click',()=>{
+    const destination=byId('lugares');
+    if(destination)destination.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'start'});
+  });
   lastWidth=innerWidth;buildMotion();sync();
+  const gsapCDN=byId('gavioli-gsap-cdn');
+  if(gsapCDN){
+    gsapCDN.addEventListener('load',()=>{
+      if(window.gsap && !gsapTimeline && !reduceMotion){buildMotion();sync();}
+    });
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',hideLoader,{once:true});else hideLoader();
   setTimeout(hideLoader,1300);
   // Expose only read-only diagnostic values (no admin privileges).
-  window.gavioliDebug=()=>({progress:Number(progressNow().toFixed(3)),animationTime:frames[0]?.currentTime??null,frames:frames.length,stageHeight:stage.offsetHeight,scrollY:window.scrollY});
+  window.gavioliDebug=()=>({engine:motionEngine,progress:Number(progressNow().toFixed(3)),bikeOpacity:getComputedStyle(bike).opacity,stageHeight:stage.offsetHeight,scrollY:window.scrollY,gsapLoaded:!!window.gsap});
 })();
 </script>
-<!-- Firebase é opcional e não muda o visual: ativo somente após configurar. -->
-<script type="module">
-        // Preencha esta constante somente quando o Firebase estiver configurado.
-        // NUNCA coloque senhas, tokens de administração ou service account aqui.
-        const firebaseConfig = null;
-        if (firebaseConfig) {
-            try {
-                const [{ initializeApp }, { getFirestore, doc, onSnapshot }] = await Promise.all([
-                    import('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js'),
-                    import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js')
-                ]);
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-                onSnapshot(doc(db, 'site', 'fotos'), snapshot => {
-                    const slots = snapshot.data()?.slots || {};
-                    document.querySelectorAll('img[data-photo-slot]').forEach(img => {
-                        const newURL = slots[img.dataset.photoSlot];
-                        if (typeof newURL === 'string' && newURL.startsWith('https://')) {
-                            if (img.src !== newURL) img.src = newURL;
-                        }
-                    });
-                }, error => console.warn('Fotos originais mantidas; Firestore indisponível:', error.code));
-            } catch (error) {
-                console.warn('Fotos originais mantidas; Firebase ainda não configurado.');
-            }
-        }
-    </script>
+<!-- Configuração isolada: toda a lógica pública adicional é opcional e progressiva. -->
+<script type="module" src="./js/public-content.js"></script>
 </body>
 </html>
