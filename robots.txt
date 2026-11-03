@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /Gavioli-guia-trilhas/
+Sitemap: https://diogo-netto.github.io/Gavioli-guia-trilhas/sitemap.xml
